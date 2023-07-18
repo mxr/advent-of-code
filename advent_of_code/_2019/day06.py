@@ -48,7 +48,7 @@ def part2(filename: str) -> int:
             # return number of hops which is 2 less than path length
             return int(dists[u]) - 2
 
-        q.discard(u)
+        q.remove(u)
         for v in graph[u]:
             dists[v] = min(dists[u] + 1, dists[v])
 
