@@ -44,13 +44,13 @@ def execute(filename: str) -> tuple[int, int]:
         def x(t: int) -> int:
             if t == 0:
                 return 0
-            return x(t - 1) + max(0, xv - t + 1) # noqa: B023
+            return x(t - 1) + max(0, xv - t + 1)  # noqa: B023
 
         def y(t: int) -> int:
             @functools.cache
             def ypv(t: int) -> tuple[int, int]:
                 if t == 0:
-                    return 0, yv # noqa: B023
+                    return 0, yv  # noqa: B023
                 py, pv = ypv(t - 1)
                 return py + pv, pv - 1
 
