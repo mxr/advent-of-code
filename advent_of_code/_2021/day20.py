@@ -23,9 +23,7 @@ class Image:
             ng = self._new_grid()
 
             # hack since real input flip-flops, doesn't work for the sample though
-            self.grid.default_factory = lambda: self.enh[
-                0 if k % 2 else 511
-            ]
+            self.grid.default_factory = lambda: self.enh[0 if k % 2 else 511]
 
             for i in range(-self.border, self.height + self.border):
                 for j in range(-self.border, self.width + self.border):
