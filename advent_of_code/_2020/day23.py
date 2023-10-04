@@ -23,7 +23,7 @@ class Node:
 
         return h
 
-    def next(self) -> Node:  # noqa: A003
+    def next(self) -> Node:
         # should only be called when we know this isn't null
         return self.nn  # type: ignore
 

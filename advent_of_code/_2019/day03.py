@@ -23,7 +23,7 @@ class Dir(Enum):
 
 
 class Step:
-    dir: Dir  # noqa: A003
+    dir: Dir
     val: int
 
     def __init__(self, raw: str) -> None:

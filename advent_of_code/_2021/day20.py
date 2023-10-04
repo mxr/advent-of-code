@@ -24,7 +24,7 @@ class Image:
 
             # hack since real input flip-flops, doesn't work for the sample though
             self.grid.default_factory = lambda: self.enh[
-                0 if k % 2 else 511  # noqa: B023
+                0 if k % 2 else 511
             ]
 
             for i in range(-self.border, self.height + self.border):
