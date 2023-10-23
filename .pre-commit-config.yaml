@@ -1,3 +1,5 @@
+default_language_version:
+    python: python3.12
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
@@ -25,8 +27,8 @@ repos:
     hooks:
     -   id: pyupgrade
         args: [--py312-plus]
--   repo: https://github.com/hakancelikdev/unimport
-    rev: 1.0.0
+-   repo: https://github.com/mxr/unimport
+    rev: af33beb
     hooks:
     -   id: unimport
 -   repo: https://github.com/mxr/unkey
