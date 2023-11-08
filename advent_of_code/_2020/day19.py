@@ -22,8 +22,8 @@ def part1(filename: str) -> int:
     @functools.lru_cache(len(rules))
     def expand(s: str) -> str:
         if "|" in s:
-            l, _, r = s.partition("|")
-            return f"(({expand(l)})|({expand(r)}))"
+            left, _, right = s.partition("|")
+            return f"(({expand(left)})|({expand(right)}))"
 
         ps = s.split()
         if ps == ['"a"'] or ps == ['"b"']:
