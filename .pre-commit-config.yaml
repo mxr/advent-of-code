@@ -18,10 +18,6 @@ repos:
     hooks:
     -   id: reorder-python-imports
         args: [--py312-plus, --add-import, 'from __future__ import annotations']
--   repo: https://github.com/mxr/unimport
-    rev: 7e28d687910c28fd209944868276e8e170b541e8
-    hooks:
-    -   id: unimport
 -   repo: https://github.com/mxr/unkey
     rev: v0.0.1
     hooks:
