@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import functools
 from collections import Counter
-from collections.abc import Iterator
 from itertools import tee
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
 
 
 @functools.cache
@@ -27,9 +30,9 @@ def part1(filename: str) -> int:
     for n in range(lo, hi + 1):
         digits = str(n)
 
-        total += any(int(f) == int(s) for f, s in zip(*pairs(digits))) and all(
-            int(f) <= int(s) for f, s in zip(*pairs(digits))
-        )
+        total += any(
+            int(f) == int(s) for f, s in zip(*pairs(digits), strict=True)
+        ) and all(int(f) <= int(s) for f, s in zip(*pairs(digits), strict=True))
 
     return total
 
@@ -42,7 +45,7 @@ def part2(filename: str) -> int:
         digits = str(n)
 
         total += (2 in Counter(digits).values()) and all(
-            int(f) <= int(s) for f, s in zip(*pairs(digits))
+            int(f) <= int(s) for f, s in zip(*pairs(digits), strict=True)
         )
 
     return total

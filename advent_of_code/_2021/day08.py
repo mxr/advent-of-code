@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from collections.abc import Generator
-from collections.abc import Iterable
 from itertools import chain
-from typing import NamedTuple
+from typing import NamedTuple, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
+    from collections.abc import Generator
 
 
 class Mapping(NamedTuple):

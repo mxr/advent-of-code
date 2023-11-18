@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import sys
 from argparse import ArgumentParser
-from collections.abc import Callable
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 
 def main(part1: Callable[[str], int], part2: Callable[[str], int]) -> int:

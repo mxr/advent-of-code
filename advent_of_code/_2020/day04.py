@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import itertools
 import re
-from collections.abc import Generator
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 RE_PAIR = re.compile(r"(\w+):([#:\w]+)")
 

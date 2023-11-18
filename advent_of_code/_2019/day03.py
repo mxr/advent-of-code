@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import functools
 from collections import UserDict
-from collections.abc import Mapping
 from enum import Enum
-from typing import TypeVar
+from typing import TypeVar, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Mapping
 
 
 class Dir(Enum):

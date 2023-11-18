@@ -1,7 +1,9 @@
 from __future__ import annotations
 
-from collections.abc import Generator
-from typing import NamedTuple
+from typing import NamedTuple, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 
 class Vector(NamedTuple):

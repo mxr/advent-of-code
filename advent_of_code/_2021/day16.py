@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import functools
-from collections.abc import Iterable
-from typing import NamedTuple
+from typing import NamedTuple, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
 
 
 def parse(filename: str) -> str:

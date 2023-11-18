@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import re
-from collections.abc import Generator
 from copy import copy
-from typing import NamedTuple
+from typing import NamedTuple, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 
 RE = re.compile(r"\w=(-?\d+)\.\.(-?\d+)")
