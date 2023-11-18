@@ -5,8 +5,6 @@ disallow_incomplete_defs = true
 disallow_untyped_defs = true
 no_implicit_optional = true
 
-
-
 [tool.ruff]
 target-version = "py312"
 
