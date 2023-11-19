@@ -25,7 +25,7 @@ def parse(filename: str, part: int) -> tuple[list[list[tuple[int, int]]], int, i
                 if y1 > y2:
                     ys.reverse()
 
-                paths.append(list(zip(xs, ys)))
+                paths.append(list(zip(xs, ys, strict=True)))
 
     return paths, max_x + 1, max_y + 1
 

@@ -1,10 +1,13 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
 from dataclasses import dataclass
 from itertools import zip_longest
 from typing import NamedTuple
+from typing import TYPE_CHECKING
 from typing import TypeVar
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
 
 T = TypeVar("T")
 

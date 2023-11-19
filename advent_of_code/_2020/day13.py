@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import math
-from collections.abc import Generator
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 
 def parse_part1(filename: str) -> Generator[int, None, None]:

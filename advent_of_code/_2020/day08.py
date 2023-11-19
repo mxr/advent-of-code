@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import itertools
-from collections.abc import Generator
 from typing import NamedTuple
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 
 class Instruction(NamedTuple):

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import DefaultDict
 
 
 class Image:
@@ -15,7 +14,7 @@ class Image:
             {(i, j): c for i, row in enumerate(inp) for j, c in enumerate(row)}
         )
 
-    def _new_grid(self) -> DefaultDict[tuple[int, int], str]:
+    def _new_grid(self) -> defaultdict[tuple[int, int], str]:
         return defaultdict(lambda: ".")
 
     def apply(self, n: int) -> None:

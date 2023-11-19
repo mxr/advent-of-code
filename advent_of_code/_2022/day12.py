@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import contextlib
-from collections.abc import Generator
+from typing import TYPE_CHECKING
 
 import dijkstar  # pip install Dijkstar
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 
 def neighbors(i: int, j: int) -> Generator[tuple[int, int], None, None]:

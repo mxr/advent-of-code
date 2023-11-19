@@ -2,12 +2,15 @@ from __future__ import annotations
 
 import bisect
 import functools
-from collections.abc import Generator
 from dataclasses import dataclass
 from dataclasses import field
 from typing import Generic
 from typing import Protocol
+from typing import TYPE_CHECKING
 from typing import TypeVar
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 
 class WithName(Protocol):

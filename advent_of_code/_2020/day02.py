@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import re
-from collections.abc import Generator
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
 
 RE = re.compile(r"(\d+)-(\d+)\s+(\w+):\s+(\w+)")
 

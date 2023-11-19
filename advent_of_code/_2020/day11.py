@@ -1,9 +1,12 @@
 from __future__ import annotations
 
-from collections.abc import Generator
-from collections.abc import Iterable
 from itertools import cycle
 from typing import NewType
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
+    from collections.abc import Generator
 
 SeatHash = NewType("SeatHash", tuple[tuple[str, ...], ...])
 
@@ -102,7 +105,7 @@ class Ferry:
         return next(
             (
                 self.seats[i][j]
-                for (i, j) in zip(irange, jrange)
+                for (i, j) in zip(irange, jrange)  # noqa: B905 because caller can be `cycle`
                 if self.seats[i][j] != "."
             ),
             None,
