@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from itertools import cycle
-from typing import NewType, TYPE_CHECKING
+from typing import NewType
+from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
@@ -104,7 +105,7 @@ class Ferry:
         return next(
             (
                 self.seats[i][j]
-                for (i, j) in zip(irange, jrange) # noqa: B905 because caller can be `cycle`
+                for (i, j) in zip(irange, jrange)  # noqa: B905 because caller can be `cycle`
                 if self.seats[i][j] != "."
             ),
             None,

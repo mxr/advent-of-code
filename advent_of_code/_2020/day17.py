@@ -59,7 +59,9 @@ class Cubes:
 
     def _neighbors(self, x: int, y: int, *zs: int) -> Generator[str, None, None]:
         for xd, yd, *zds in self.deltas:
-            yield self.cubes[(x + xd, y + yd, *(z + zd for z, zd in zip(zs, zds,strict=True)))]
+            yield self.cubes[
+                (x + xd, y + yd, *(z + zd for z, zd in zip(zs, zds, strict=True)))
+            ]
 
 
 def parse(filename: str, dims: int) -> Cubes:

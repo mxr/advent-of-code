@@ -6,7 +6,8 @@ from dataclasses import dataclass
 from dataclasses import field
 from typing import Generic
 from typing import Protocol
-from typing import TypeVar, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import TypeVar
 
 if TYPE_CHECKING:
     from collections.abc import Generator

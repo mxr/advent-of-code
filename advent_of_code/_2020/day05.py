@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from itertools import tee
-from typing import TypeVar, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import TypeVar
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
@@ -13,7 +14,7 @@ T = TypeVar("T")
 def pairwise(iterable: Iterable[T]) -> Iterable[tuple[T, T]]:
     a, b = tee(iterable)
     next(b, None)
-    return zip(a, b,strict=True)
+    return zip(a, b, strict=True)
 
 
 def parse(filename: str) -> Generator[tuple[str, str], None, None]:
