@@ -104,7 +104,7 @@ class Ferry:
         return next(
             (
                 self.seats[i][j]
-                for (i, j) in zip(irange, jrange) # noqa: B905
+                for (i, j) in zip(irange, jrange) # noqa: B905 because caller can be `cycle`
                 if self.seats[i][j] != "."
             ),
             None,

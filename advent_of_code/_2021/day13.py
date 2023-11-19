@@ -55,7 +55,7 @@ def parse(filename: str) -> tuple[Paper, list[Fold]]:
         ys.append(int(y))
 
     paper = Paper([[False] * (max(xs) + 1) for _ in range(max(ys) + 1)])
-    for j, i in zip(xs, ys):
+    for j, i in zip(xs, ys,strict=True):
         paper.mark(i, j)
 
     folds = []
@@ -82,7 +82,7 @@ def part2(filename: str) -> int:
     for fold in folds:
         paper.fold(fold)
 
-    print(paper)
+    print("\n",paper,sep="")
 
     return -1
 

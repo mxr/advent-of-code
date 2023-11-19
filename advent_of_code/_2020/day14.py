@@ -61,7 +61,7 @@ def part2(filename: str) -> int:
 def apply(mask: str, address: int) -> str:
     return "".join(
         a if m == "0" else "1" if m == "1" else "X"
-        for (m, a) in zip(mask, format(address, "036b"))
+        for (m, a) in zip(mask, format(address, "036b"), strict=True)
     )
 
 
