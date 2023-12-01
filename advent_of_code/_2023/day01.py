@@ -30,16 +30,16 @@ FWD_RE = re.compile("|".join(f"({n})" for n in FWDS))
 REV_RE = re.compile("|".join(f"({n})" for n in REVS))
 
 
-def part2(filename: str) -> int:
-    total = 0
-    for line in parse(filename):
-        m = FWD_RE.search(line)
-        assert m
-        tens = FWDS[m.group(0)]
-        ones = REVS[m.group(0)] if (m := REV_RE.search(line[::-1])) else tens
-        total += tens * 10 + ones
+def first(m: re.Match[str] | None) -> str:
+    assert m is not None
+    return m.group(0)
 
-    return total
+
+def part2(filename: str) -> int:
+    return sum(
+        FWDS[first(FWD_RE.search(line))] * 10 + REVS[first(REV_RE.search(line[::-1]))]
+        for line in parse(filename)
+    )
 
 
 if __name__ == "__main__":
