@@ -2,9 +2,7 @@ from __future__ import annotations
 
 import functools
 import re
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    from typing import TypeGuard, Optional
+
 
 @functools.cache
 def parse(filename: str) -> tuple[str, ...]:
@@ -22,22 +20,22 @@ def part1(filename: str) -> int:
     )
 
 
-NUMS = {str(n): i + 1 for i, n in enumerate(range(1,10)}
+NUMS = {str(n): i for i, n in enumerate(range(1, 10), start=1)}
 STRS = ("one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
 
-FWDS = NUMS| {    s: i + 1 for i, s in enumerate(STRS)}
-REVS = NUMS | {    s[::-1]: i + 1 for i, s in enumerate(STRS)}
+FWDS = NUMS | {s: i for i, s in enumerate(STRS, start=1)}
+REVS = NUMS | {s[::-1]: i for i, s in enumerate(STRS, start=1)}
 
 FWD_RE = re.compile("|".join(f"({n})" for n in FWDS))
 REV_RE = re.compile("|".join(f"({n})" for n in REVS))
 
-def must(x: Optional[T])->TypeGuard[T]:
-    assert x is not None
 
 def part2(filename: str) -> int:
     total = 0
     for line in parse(filename):
-        tens = FWDS[must(FWD_RE.search(line)).group(0)]
+        m = FWD_RE.search(line)
+        assert m
+        tens = FWDS[m.group(0)]
         ones = REVS[m.group(0)] if (m := REV_RE.search(line[::-1])) else tens
         total += tens * 10 + ones
 
