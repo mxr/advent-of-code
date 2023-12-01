@@ -22,7 +22,7 @@ def part1(filename: str) -> int:
     )
 
 
-NUMS = {str(n): i + 1 for i, n in enumerate(range(1,10)} 
+NUMS = {str(n): i + 1 for i, n in enumerate(range(1,10)}
 STRS = ("one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
 
 FWDS = NUMS| {    s: i + 1 for i, s in enumerate(STRS)}
