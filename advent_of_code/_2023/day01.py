@@ -14,7 +14,7 @@ def part1(filename: str) -> int:
     return sum(
         (
             next(int(c) * 10 for c in line if "0" <= c <= "9")
-        + next(int(c) for c in reversed(line) if "0" <= c <= "9")
+            + next(int(c) for c in reversed(line) if "0" <= c <= "9")
         )
         for line in parse(filename)
     )
