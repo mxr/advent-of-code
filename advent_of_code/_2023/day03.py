@@ -33,7 +33,7 @@ def parse(
     return (
         engine,
         parts,
-        part_neighbors,a
+        part_neighbors,
         max(r for r, _ in engine),
         max(c for _, c in engine),
     )
