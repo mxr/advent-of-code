@@ -13,8 +13,6 @@ RE_GREEN = re.compile(r"(\d+) green")
 RE_BLUE = re.compile(r"(\d+) blue")
 
 
-
-
 @functools.cache
 def parse(filename: str) -> tuple[tuple[int, tuple[tuple[int, int, int], ...]], ...]:
     def gen() -> Generator[tuple[int, tuple[tuple[int, int, int], ...]], None, None]:
