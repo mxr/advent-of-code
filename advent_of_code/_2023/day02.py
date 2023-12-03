@@ -13,9 +13,6 @@ RE_GREEN = re.compile(r"(\d+) green")
 RE_BLUE = re.compile(r"(\d+) blue")
 
 
-def mtoi(m: re.Match[str] | None) -> int:
-    assert m is not None
-    return int(m.group())
 
 
 @functools.cache
