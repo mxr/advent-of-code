@@ -48,7 +48,7 @@ def neighbors(row: int, col: int) -> Generator[tuple[int, int], None, None]:
 def part1(filename: str) -> int:
     engine, parts, part_neighbors, mrow, mcol = parse(filename)
 
-    ns = []
+    total = 0
     for row in range(1, mrow + 1):
         locs = []
         for col in range(1, mcol + 2):
@@ -56,10 +56,10 @@ def part1(filename: str) -> int:
                 locs.append((row, col))
             else:
                 if not part_neighbors.isdisjoint(locs):
-                    ns.append(int("".join(engine[loc] for loc in locs)))
+                    total += int("".join(engine[loc] for loc in locs))
                 locs = []
 
-    return sum(ns)
+    return total
 
 
 def part2(filename: str) -> int:
