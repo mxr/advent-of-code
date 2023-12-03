@@ -69,10 +69,12 @@ def part2(filename: str) -> int:
     for row, col in parts:
         if engine[row, col] != "*":
             continue
+
         all_locs = set()
         for nr, nc in neighbors(row, col):
             if not "0" <= engine[nr, nc] <= "9":
                 continue
+
             while "0" <= engine[nr, nc] <= "9":
                 nc -= 1
             nc += 1
@@ -80,8 +82,10 @@ def part2(filename: str) -> int:
             while "0" <= engine[nr, nc] <= "9":
                 nc += 1
             all_locs.add(tuple((nr, c) for c in range(sc, nc)))
+
         if len(all_locs) != 2:
             continue
+
         total += math.prod(
             int("".join(engine[loc] for loc in locs)) for locs in all_locs
         )
