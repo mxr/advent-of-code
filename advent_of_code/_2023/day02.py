@@ -13,6 +13,11 @@ RE_GREEN = re.compile(r"(\d+) green")
 RE_BLUE = re.compile(r"(\d+) blue")
 
 
+def mtoi(m: re.Match[str] | None) -> int:
+    assert m is not None
+    return int(m.group())
+
+
 @functools.cache
 def parse(filename: str) -> tuple[tuple[int, tuple[tuple[int, int, int], ...]], ...]:
     def gen() -> Generator[tuple[int, tuple[tuple[int, int, int], ...]], None, None]:
@@ -37,12 +42,10 @@ def parse(filename: str) -> tuple[tuple[int, tuple[tuple[int, int, int], ...]], 
 
 
 def part1(filename: str) -> int:
-    target = (12, 13, 14)
-
     return sum(
         n
         for n, cnts in parse(filename)
-        if all(c <= t for cnt in cnts for c, t in zip(cnt, target, strict=True))
+        if all(r <= 12 and g <= 13 and b <= 14 for (r, g, b) in cnts)
     )
 
 
