@@ -11,11 +11,7 @@ if TYPE_CHECKING:
 
 
 @functools.cache
-def parse(
-    filename: str
-) -> tuple[
-    dict[tuple[int, int], str], list[tuple[int, int]], set[tuple[int, int]], int, int
-]:
+def parse(filename: str) -> tuple[dict[tuple[int, int], str], list[tuple[int, int]]]:
     with open(filename) as f:
         engine: dict[tuple[int, int], str] = defaultdict(lambda: ".")
         parts: list[tuple[int, int]] = []
@@ -26,17 +22,7 @@ def parse(
                 if not ("0" <= c <= "9") and c != ".":
                     parts.append((row, col))
 
-    part_neighbors: set[tuple[int, int]] = set(
-        itertools.chain.from_iterable(neighbors(row, col) for row, col in parts)
-    )
-
-    return (
-        engine,
-        parts,
-        part_neighbors,
-        max(r for r, _ in engine),
-        max(c for _, c in engine),
-    )
+    return engine, parts
 
 
 def neighbors(row: int, col: int) -> Generator[tuple[int, int], None, None]:
@@ -46,7 +32,13 @@ def neighbors(row: int, col: int) -> Generator[tuple[int, int], None, None]:
 
 
 def part1(filename: str) -> int:
-    engine, parts, part_neighbors, mrow, mcol = parse(filename)
+    engine, parts = parse(filename)
+
+    part_neighbors: set[tuple[int, int]] = set(
+        itertools.chain.from_iterable(neighbors(row, col) for row, col in parts)
+    )
+    mrow = max(r for r, _ in engine)
+    mcol = max(c for _, c in engine)
 
     total = 0
     for row in range(1, mrow + 1):
@@ -63,7 +55,7 @@ def part1(filename: str) -> int:
 
 
 def part2(filename: str) -> int:
-    engine, parts, _, mrow, mcol = parse(filename)
+    engine, parts = parse(filename)
 
     total = 0
     for row, col in parts:
