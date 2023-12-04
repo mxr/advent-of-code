@@ -13,8 +13,8 @@ if TYPE_CHECKING:
 @functools.cache
 def parse(filename: str) -> tuple[dict[tuple[int, int], str], list[tuple[int, int]]]:
     with open(filename) as f:
-        engine: dict[tuple[int, int], str] = defaultdict(lambda: ".")
-        parts: list[tuple[int, int]] = []
+        engine = defaultdict(lambda: ".")
+        parts = []
 
         for row, line in enumerate(f, start=1):
             for col, c in enumerate(line.strip(), start=1):
@@ -34,7 +34,7 @@ def neighbors(row: int, col: int) -> Generator[tuple[int, int], None, None]:
 def part1(filename: str) -> int:
     engine, parts = parse(filename)
 
-    part_neighbors: set[tuple[int, int]] = set(
+    part_neighbors = set(
         itertools.chain.from_iterable(neighbors(row, col) for row, col in parts)
     )
     mrow = max(r for r, _ in engine)
