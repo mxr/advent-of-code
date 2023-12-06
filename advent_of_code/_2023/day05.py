@@ -11,7 +11,7 @@ def parse(
     with open(filename) as f:
         seeds = tuple(int(n) for n in next(f).removeprefix("seeds: ").split())
         next(f)
-   
+
         maps = {}
         chunks = f.read().split("\n\n")
         for chunk in chunks:
