@@ -56,24 +56,25 @@ def key_part1(hand: str) -> tuple[int, int, int, int, int, int]:
 
 @functools.cache
 def key_part2(hand: str) -> tuple[int, int, int, int, int, int]:
-    def typ() -> int:
+    def mctype_part2() -> str:
         c = Counter(hand)
-
         mc = c.most_common()
-        if "J" in c:
-            mc.remove(("J", c["J"]))
-            if mc:
-                mc[0] = (mc[0][0], mc[0][1] + c["J"])
-            else:
-                return TYPES["FIVE"]
+        if "J" not in c:
+            return mctype(mc)
 
-        return TYPES[mctype(mc)]
+        mc.remove(("J", c["J"]))
+        if not mc:
+            return "FIVE"
+
+        mc[0] = (mc[0][0], mc[0][1] + c["J"])
+
+        return mctype(mc)
 
     strengths = cast(
         tuple[int, int, int, int, int], tuple(STRENGTHS_P2[c] for c in hand)
     )
 
-    return typ(), *strengths
+    return TYPES[mctype_part2()], *strengths
 
 
 @functools.cache
