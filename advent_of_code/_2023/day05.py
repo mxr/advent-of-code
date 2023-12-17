@@ -9,11 +9,11 @@ def parse(
     filename: str,
 ) -> tuple[tuple[int, ...], dict[str, tuple[str, tuple[tuple[int, int, int], ...]]]]:
     with open(filename) as f:
-        seeds = tuple(int(n) for n in next(f).removeprefix("seeds: ").split())
-        next(f)
+        rseeds, *chunks = f.read().split("\n\n")
+
+        seeds = tuple(int(n) for n in rseeds.removeprefix("seeds: ").split())
 
         maps = {}
-        chunks = f.read().split("\n\n")
         for chunk in chunks:
             title, *rnums = chunk.splitlines()
             src, _, dst = title.removesuffix(" map:").partition("-to-")
