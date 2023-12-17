@@ -16,8 +16,12 @@ def parse(filename: str) -> tuple[dict[tuple[int, int], str], list[tuple[int, in
         engine = defaultdict(lambda: ".")
         parts = []
 
-        for row, line in enumerate(f,):
-            for col, c in enumerate(line.strip(), ):
+        for row, line in enumerate(
+            f,
+        ):
+            for col, c in enumerate(
+                line.strip(),
+            ):
                 engine[row, col] = c
                 if not ("0" <= c <= "9") and c != ".":
                     parts.append((row, col))
@@ -37,8 +41,8 @@ def part1(filename: str) -> int:
     part_neighbors = set(
         itertools.chain.from_iterable(neighbors(row, col) for row, col in parts)
     )
-    mrow = max(r for r, _ in engine)+1
-    mcol = max(c for _, c in engine)+1
+    mrow = max(r for r, _ in engine) + 1
+    mcol = max(c for _, c in engine) + 1
 
     total = 0
     for row in range(mrow):
