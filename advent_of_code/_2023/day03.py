@@ -28,7 +28,8 @@ def parse(filename: str) -> tuple[dict[tuple[int, int], str], list[tuple[int, in
 def neighbors(row: int, col: int) -> Generator[tuple[int, int], None, None]:
     for r in (-1, 0, 1):
         for c in (-1, 0, 1):
-            yield row + r, col + c
+            if r or c:
+                yield row + r, col + c
 
 
 def part1(filename: str) -> int:
