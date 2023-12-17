@@ -16,12 +16,8 @@ def parse(filename: str) -> tuple[dict[tuple[int, int], str], list[tuple[int, in
         engine = defaultdict(lambda: ".")
         parts = []
 
-        for row, line in enumerate(
-            f,
-        ):
-            for col, c in enumerate(
-                line.strip(),
-            ):
+        for row, line in enumerate(f):
+            for col, c in enumerate(line.strip()):
                 engine[row, col] = c
                 if not ("0" <= c <= "9") and c != ".":
                     parts.append((row, col))
