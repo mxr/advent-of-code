@@ -3,7 +3,8 @@ from __future__ import annotations
 import functools
 from collections import Counter
 from typing import cast
-from typing import TYPE_CHECKING, NewType
+from typing import NewType
+from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -43,7 +44,8 @@ def mctype(mc: list[tuple[str, int]]) -> str:
     return "HIGH"
 
 
-SortKey = NewType('SortKey', tuple[int, int, int, int, int, int])
+SortKey = NewType("SortKey", tuple[int, int, int, int, int, int])
+
 
 @functools.cache
 def key_part1(hand: str) -> SortKey:
@@ -79,13 +81,14 @@ def key_part2(hand: str) -> SortKey:
     return SortKey(TYPES[mctype_part2()], *strengths)
 
 
-def solve(filename: str, key:Callable[[str], SortKey]) -> int:
-     return sum(
+def solve(filename: str, key: Callable[[str], SortKey]) -> int:
+    return sum(
         i * bid
         for i, (_, bid) in enumerate(
             sorted((key(hand), bid) for hand, bid in parse(filename)), start=1
         )
     )
+
 
 @functools.cache
 def parse(filename: str) -> tuple[tuple[str, int], ...]:
@@ -103,7 +106,7 @@ def part1(filename: str) -> int:
 
 
 def part2(filename: str) -> int:
-        return solve(filename, key_part2)
+    return solve(filename, key_part2)
 
 
 if __name__ == "__main__":
