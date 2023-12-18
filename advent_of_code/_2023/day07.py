@@ -3,31 +3,21 @@ from __future__ import annotations
 import functools
 from collections import Counter
 from typing import cast
+from typing import NewType
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
     from collections.abc import Generator
 
-STRENGTHS_P1 = {
-    s: i
-    for i, s in enumerate(
-        reversed(("A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"))
-    )
-}
+STRENGTHS_P1_S = ("2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A")
+STRENGTHS_P1 = {s: i for i, s in enumerate(STRENGTHS_P1_S)}
 
-STRENGTHS_P2 = {
-    s: i
-    for i, s in enumerate(
-        reversed(("A", "K", "Q", "T", "9", "8", "7", "6", "5", "4", "3", "2", "J"))
-    )
-}
+STRENGTHS_P2_S = ("J", "2", "3", "4", "5", "6", "7", "8", "9", "T", "Q", "K", "A")
+STRENGTHS_P2 = {s: i for i, s in enumerate(STRENGTHS_P2_S)}
 
-TYPES = {
-    t: i
-    for i, t in enumerate(
-        reversed(("FIVE", "FOUR", "FULL", "THREE", "TWO", "ONE", "HIGH"))
-    )
-}
+TYPES_S = ("HIGH", "ONE", "TWO", "THREE", "FULL", "FOUR", "FIVE")
+TYPES = {t: i for i, t in enumerate(TYPES_S)}
 
 
 def mctype(mc: list[tuple[str, int]]) -> str:
@@ -43,19 +33,22 @@ def mctype(mc: list[tuple[str, int]]) -> str:
     return "HIGH"
 
 
+SortKey = NewType("SortKey", tuple[int, int, int, int, int, int])
+
+
 @functools.cache
-def key_part1(hand: str) -> tuple[int, int, int, int, int, int]:
+def key_part1(hand: str) -> SortKey:
     typ = TYPES[mctype(Counter(hand).most_common())]
 
     strengths = cast(
         tuple[int, int, int, int, int], tuple(STRENGTHS_P1[c] for c in hand)
     )
 
-    return typ, *strengths
+    return SortKey((typ, *strengths))
 
 
 @functools.cache
-def key_part2(hand: str) -> tuple[int, int, int, int, int, int]:
+def key_part2(hand: str) -> SortKey:
     def mctype_part2() -> str:
         c = Counter(hand)
         mc = c.most_common()
@@ -74,7 +67,16 @@ def key_part2(hand: str) -> tuple[int, int, int, int, int, int]:
         tuple[int, int, int, int, int], tuple(STRENGTHS_P2[c] for c in hand)
     )
 
-    return TYPES[mctype_part2()], *strengths
+    return SortKey((TYPES[mctype_part2()], *strengths))
+
+
+def solve(filename: str, key: Callable[[str], SortKey]) -> int:
+    return sum(
+        i * bid
+        for i, (_, bid) in enumerate(
+            sorted((key(hand), bid) for hand, bid in parse(filename)), start=1
+        )
+    )
 
 
 @functools.cache
@@ -89,21 +91,11 @@ def parse(filename: str) -> tuple[tuple[str, int], ...]:
 
 
 def part1(filename: str) -> int:
-    return sum(
-        i * bid
-        for i, (_, bid) in enumerate(
-            sorted((key_part1(hand), bid) for hand, bid in parse(filename)), start=1
-        )
-    )
+    return solve(filename, key_part1)
 
 
 def part2(filename: str) -> int:
-    return sum(
-        i * bid
-        for i, (_, bid) in enumerate(
-            sorted((key_part2(hand), bid) for hand, bid in parse(filename)), start=1
-        )
-    )
+    return solve(filename, key_part2)
 
 
 if __name__ == "__main__":
