@@ -43,19 +43,21 @@ def mctype(mc: list[tuple[str, int]]) -> str:
     return "HIGH"
 
 
+SortKey = NewType('SortKey', tuple[int, int, int, int, int, int])
+
 @functools.cache
-def key_part1(hand: str) -> tuple[int, int, int, int, int, int]:
+def key_part1(hand: str) -> SortKey:
     typ = TYPES[mctype(Counter(hand).most_common())]
 
     strengths = cast(
         tuple[int, int, int, int, int], tuple(STRENGTHS_P1[c] for c in hand)
     )
 
-    return typ, *strengths
+    return SortKey(typ, *strengths)
 
 
 @functools.cache
-def key_part2(hand: str) -> tuple[int, int, int, int, int, int]:
+def key_part2(hand: str) -> SortKey:
     def mctype_part2() -> str:
         c = Counter(hand)
         mc = c.most_common()
@@ -74,8 +76,16 @@ def key_part2(hand: str) -> tuple[int, int, int, int, int, int]:
         tuple[int, int, int, int, int], tuple(STRENGTHS_P2[c] for c in hand)
     )
 
-    return TYPES[mctype_part2()], *strengths
+    return SortKey(TYPES[mctype_part2()], *strengths)
 
+
+def solve(filename: str, key:Callable[[str], SortKey]) -> int:
+     return sum(
+        i * bid
+        for i, (_, bid) in enumerate(
+            sorted((key(hand), bid) for hand, bid in parse(filename)), start=1
+        )
+    )
 
 @functools.cache
 def parse(filename: str) -> tuple[tuple[str, int], ...]:
@@ -89,21 +99,11 @@ def parse(filename: str) -> tuple[tuple[str, int], ...]:
 
 
 def part1(filename: str) -> int:
-    return sum(
-        i * bid
-        for i, (_, bid) in enumerate(
-            sorted((key_part1(hand), bid) for hand, bid in parse(filename)), start=1
-        )
-    )
+    return solve(filename, key_part1)
 
 
 def part2(filename: str) -> int:
-    return sum(
-        i * bid
-        for i, (_, bid) in enumerate(
-            sorted((key_part2(hand), bid) for hand, bid in parse(filename)), start=1
-        )
-    )
+        return solve(filename, key_part2)
 
 
 if __name__ == "__main__":
