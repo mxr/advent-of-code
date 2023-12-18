@@ -3,7 +3,7 @@ from __future__ import annotations
 import functools
 from collections import Counter
 from typing import cast
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, NewType
 
 if TYPE_CHECKING:
     from collections.abc import Generator
