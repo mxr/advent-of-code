@@ -10,27 +10,14 @@ if TYPE_CHECKING:
     from collections.abc import Callable
     from collections.abc import Generator
 
-STRENGTHS_P1_S = ('2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A')
-STRENGTHS_P1 = {
-    s: i
-    for i, s in enumerate(STRENGTHS_P1_S
-    )
-}
+STRENGTHS_P1_S = ("2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A")
+STRENGTHS_P1 = {s: i for i, s in enumerate(STRENGTHS_P1_S)}
 
-STRENGTHS_P2_S = ('J', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'Q', 'K', 'A')
-STRENGTHS_P2 = {
-    s: i
-    for i, s in enumerate(
-        STRENGTHS_P2_S
-    )
-}
+STRENGTHS_P2_S = ("J", "2", "3", "4", "5", "6", "7", "8", "9", "T", "Q", "K", "A")
+STRENGTHS_P2 = {s: i for i, s in enumerate(STRENGTHS_P2_S)}
 
-TYPES_S = ('HIGH', 'ONE', 'TWO', 'THREE', 'FULL', 'FOUR', 'FIVE')
-TYPES = {
-    t: i
-    for i, t in enumerate(TYPES_S
-    )
-}
+TYPES_S = ("HIGH", "ONE", "TWO", "THREE", "FULL", "FOUR", "FIVE")
+TYPES = {t: i for i, t in enumerate(TYPES_S)}
 
 
 def mctype(mc: list[tuple[str, int]]) -> str:
