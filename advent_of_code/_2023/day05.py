@@ -71,7 +71,7 @@ def part2(filename: str) -> int:
                     # overlap check - https://stackoverflow.com/a/3269471
                     if rs >= srs + srl or srs >= rs + rl:
                         continue
-                    # remove LHS leftover from conversoin
+                    # remove LHS leftover from conversion
                     if rs < srs:
                         ranges.append((rs, srs - rs))
                         rs = srs
