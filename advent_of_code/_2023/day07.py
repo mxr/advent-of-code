@@ -2,32 +2,33 @@ from __future__ import annotations
 
 import functools
 from collections import Counter
-from collections.abc import Callable
 from typing import cast
 from typing import NewType
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
     from collections.abc import Generator
 
+STRENGTHS_P1_S = ('2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A')
 STRENGTHS_P1 = {
     s: i
-    for i, s in enumerate(
-        reversed(("A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"))
+    for i, s in enumerate(STRENGTHS_P1_S
     )
 }
 
+STRENGTHS_P2_S = ('J', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'Q', 'K', 'A')
 STRENGTHS_P2 = {
     s: i
     for i, s in enumerate(
-        reversed(("A", "K", "Q", "T", "9", "8", "7", "6", "5", "4", "3", "2", "J"))
+        STRENGTHS_P2_S
     )
 }
 
+TYPES_S = ('HIGH', 'ONE', 'TWO', 'THREE', 'FULL', 'FOUR', 'FIVE')
 TYPES = {
     t: i
-    for i, t in enumerate(
-        reversed(("FIVE", "FOUR", "FULL", "THREE", "TWO", "ONE", "HIGH"))
+    for i, t in enumerate(TYPES_S
     )
 }
 
