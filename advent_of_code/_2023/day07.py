@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import functools
 from collections import Counter
+from collections.abc import Callable
 from typing import cast
-from typing import Callable
 from typing import NewType
 from typing import TYPE_CHECKING
 
