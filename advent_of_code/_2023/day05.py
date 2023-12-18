@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import functools
+import itertools
+import sys
 from typing import cast
 
 
@@ -54,7 +56,38 @@ def part1(filename: str) -> int:
 
 
 def part2(filename: str) -> int:
-    return -1
+    # convert ranges using mapping, adapted from reddit
+    seeds, mappings = parse(filename)
+    m = sys.maxsize
+    for seed in itertools.batched(seeds, 2):
+        ranges = [cast(tuple[int, int], seed)]
+        curr = "seed"
+        while curr != "location":
+            nxt, vals = mappings[curr]
+            new_ranges = []
+            while ranges:
+                rs, rl = ranges.pop()
+                for drs, srs, srl in vals:
+                    # overlap check - https://stackoverflow.com/a/3269471
+                    if rs >= srs + srl or srs >= rs + rl:
+                        continue
+                    # remove LHS leftover from conversoin
+                    if rs < srs:
+                        ranges.append((rs, srs - rs))
+                        rs = srs
+                    # remove RHS leftover from conversion
+                    if srs + srl < rs + rl:
+                        ranges.append((srs + srl, rs + rl - srs - srl))
+                        rl = srs + srl - rs
+                    new_ranges.append((rs + drs - srs, rl))
+                    break
+                else:
+                    new_ranges.append((rs, rl))
+            ranges, new_ranges = new_ranges, []
+            curr = nxt
+        m = min(m, min(ranges)[0])
+
+    return m
 
 
 if __name__ == "__main__":
