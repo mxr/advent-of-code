@@ -3,6 +3,7 @@ from __future__ import annotations
 import functools
 from collections import Counter
 from typing import cast
+from typing import Callable
 from typing import NewType
 from typing import TYPE_CHECKING
 
@@ -55,7 +56,7 @@ def key_part1(hand: str) -> SortKey:
         tuple[int, int, int, int, int], tuple(STRENGTHS_P1[c] for c in hand)
     )
 
-    return SortKey(typ, *strengths)
+    return SortKey((typ, *strengths))
 
 
 @functools.cache
@@ -78,7 +79,7 @@ def key_part2(hand: str) -> SortKey:
         tuple[int, int, int, int, int], tuple(STRENGTHS_P2[c] for c in hand)
     )
 
-    return SortKey(TYPES[mctype_part2()], *strengths)
+    return SortKey((TYPES[mctype_part2()], *strengths))
 
 
 def solve(filename: str, key: Callable[[str], SortKey]) -> int:
