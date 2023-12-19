@@ -33,7 +33,7 @@ def part1(filename: str) -> int:
 
         for i in range(len(seqs) - 2, -1, -1):
             seqs[i].append(seqs[i][-1] + seqs[i + 1][-1])
-        
+
         t += seqs[0][-1]
 
     return t
@@ -54,7 +54,7 @@ def part2(filename: str) -> int:
 
         for i in range(len(seqs) - 2, -1, -1):
             seqs[i].appendleft(seqs[i][0] - seqs[i + 1][0])
-        
+
         t += seqs[0][0]
 
     return t
