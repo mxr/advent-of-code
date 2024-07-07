@@ -99,7 +99,7 @@ def run(codes: dict[int, int], inp: int) -> list[int]:
 
 
 def solve(filename: str, inp: int) -> None:
-    print(run(defaultdict(int, enumerate(list(parse(filename)))), inp))
+    print(run(defaultdict(int, enumerate(parse(filename))), inp))
 
 
 def part1(filename: str) -> int:
