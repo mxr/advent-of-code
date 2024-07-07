@@ -116,4 +116,3 @@ if __name__ == "__main__":
     from advent_of_code.common.main import main
 
     raise SystemExit(main(part1, part2))
-
