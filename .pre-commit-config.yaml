@@ -17,12 +17,12 @@ repos:
   rev: v2.7.0
   hooks:
   - id: setup-cfg-fmt
-    args: [--min-py-version, '3.12']
+    args: [--min-py-version, '3.13']
 - repo: https://github.com/asottile/reorder-python-imports
   rev: v3.14.0
   hooks:
   - id: reorder-python-imports
-    args: [--py312-plus, --add-import, from __future__ import annotations]
+    args: [--py313-plus, --add-import, from __future__ import annotations]
 - repo: https://github.com/mxr/unkey
   rev: v0.0.2
   hooks:
@@ -37,4 +37,4 @@ repos:
   rev: v1.14.1
   hooks:
   - id: mypy
-    language_version: python3.12
+    language_version: python3.13

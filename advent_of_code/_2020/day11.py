@@ -61,7 +61,7 @@ class Ferry:
     def _hash(self) -> SeatHash:
         return SeatHash(tuple(tuple(row) for row in self.seats))
 
-    def _neighbors(self, i: int, j: int) -> Generator[str, None, None]:
+    def _neighbors(self, i: int, j: int) -> Generator[str]:
         for i_delta, j_delta in (
             (-1, 0),
             (+1, 0),
@@ -76,7 +76,7 @@ class Ferry:
             if 0 <= ni < self.height and 0 <= nj < self.width:
                 yield self.seats[ni][nj]
 
-    def _visible(self, i: int, j: int) -> Generator[str, None, None]:
+    def _visible(self, i: int, j: int) -> Generator[str]:
         up = range(i - 1, -1, -1), cycle((j,))
         down = range(i + 1, self.height), cycle((j,))
         left = cycle((i,)), range(j - 1, -1, -1)

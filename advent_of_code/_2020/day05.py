@@ -17,7 +17,7 @@ def pairwise(iterable: Iterable[T]) -> Iterable[tuple[T, T]]:
     return zip(a, b, strict=True)
 
 
-def parse(filename: str) -> Generator[tuple[str, str], None, None]:
+def parse(filename: str) -> Generator[tuple[str, str]]:
     with open(filename) as f:
         for raw in f:
             line = raw.strip()
@@ -28,7 +28,7 @@ def part1(filename: str) -> int:
     return max(seat_ids(filename))
 
 
-def seat_ids(filename: str) -> Generator[int, None, None]:
+def seat_ids(filename: str) -> Generator[int]:
     return (seat_id(row_enc, col_enc) for row_enc, col_enc in parse(filename))
 
 

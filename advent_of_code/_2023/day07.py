@@ -81,7 +81,7 @@ def solve(filename: str, key: Callable[[str], SortKey]) -> int:
 
 @functools.cache
 def parse(filename: str) -> tuple[tuple[str, int], ...]:
-    def gen() -> Generator[tuple[str, int], None, None]:
+    def gen() -> Generator[tuple[str, int]]:
         with open(filename) as f:
             for line in f:
                 card, _, rbid = line.partition(" ")

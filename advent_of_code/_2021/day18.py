@@ -19,7 +19,7 @@ RE_D = re.compile(r"\d+")
 RE_T = re.compile(r"\d{2,}")
 
 
-def parse(filename: str) -> Generator[str, None, None]:
+def parse(filename: str) -> Generator[str]:
     with open(filename) as f:
         for line in f:
             yield line.strip()

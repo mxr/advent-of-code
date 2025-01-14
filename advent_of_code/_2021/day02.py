@@ -12,7 +12,7 @@ class Vector(NamedTuple):
     value: int
 
 
-def parse(filename: str) -> Generator[Vector, None, None]:
+def parse(filename: str) -> Generator[Vector]:
     with open(filename) as f:
         for line in f:
             p1, _, p2 = line.partition(" ")

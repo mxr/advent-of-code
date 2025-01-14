@@ -56,7 +56,7 @@ class Expr:
         return s[0]
 
 
-def parse(filename: str) -> Generator[Expr, None, None]:
+def parse(filename: str) -> Generator[Expr]:
     with open(filename) as f:
         for line in f:
             yield Expr(line.strip())

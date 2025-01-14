@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 @functools.cache
 def parse(filename: str) -> tuple[tuple[int, int], ...]:
-    def gen() -> Generator[tuple[int, int], None, None]:
+    def gen() -> Generator[tuple[int, int]]:
         with open(filename) as f:
             for line in f:
                 card, _, rnums = line.partition(":")

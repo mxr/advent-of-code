@@ -36,12 +36,12 @@ class Map:
     def all_flashed(self) -> bool:
         return all(self.grid[i][j] == 0 for i, j in self._loop_coords())
 
-    def _loop_coords(self) -> Generator[tuple[int, int], None, None]:
+    def _loop_coords(self) -> Generator[tuple[int, int]]:
         for i in range(self.height):
             for j in range(self.width):
                 yield i, j
 
-    def _neighbors(self, i: int, j: int) -> Generator[tuple[int, int], None, None]:
+    def _neighbors(self, i: int, j: int) -> Generator[tuple[int, int]]:
         for di in (-1, 0, +1):
             for dj in (-1, 0, +1):
                 if di == dj == 0:

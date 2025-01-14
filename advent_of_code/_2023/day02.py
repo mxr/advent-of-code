@@ -15,7 +15,7 @@ RE_BLUE = re.compile(r"(\d+) blue")
 
 @functools.cache
 def parse(filename: str) -> tuple[tuple[int, tuple[tuple[int, int, int], ...]], ...]:
-    def gen() -> Generator[tuple[int, tuple[tuple[int, int, int], ...]], None, None]:
+    def gen() -> Generator[tuple[int, tuple[tuple[int, int, int], ...]]]:
         with open(filename) as f:
             for line in f:
                 game, rounds = line.split(":")

@@ -30,7 +30,7 @@ class IngredientList(NamedTuple):
 
 def parse(
     filename: str,
-) -> Generator[IngredientList, None, None]:
+) -> Generator[IngredientList]:
     with open(filename) as f:
         for line in f:
             m = RE.match(line)

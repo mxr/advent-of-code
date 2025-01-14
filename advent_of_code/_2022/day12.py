@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from collections.abc import Generator
 
 
-def neighbors(i: int, j: int) -> Generator[tuple[int, int], None, None]:
+def neighbors(i: int, j: int) -> Generator[tuple[int, int]]:
     yield i - 1, j
     yield i, j - 1
     yield i + 1, j

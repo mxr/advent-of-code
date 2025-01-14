@@ -20,7 +20,7 @@ class ScoreType(Enum):
     ILLEGAL = "illegal"
 
 
-def parse(filename: str) -> Generator[str, None, None]:
+def parse(filename: str) -> Generator[str]:
     with open(filename) as f:
         for line in f:
             yield line.strip()
@@ -38,7 +38,7 @@ def part2(filename: str) -> int:
     )
 
 
-def line_scores(lines: Iterable[str]) -> Generator[tuple[ScoreType, int], None, None]:
+def line_scores(lines: Iterable[str]) -> Generator[tuple[ScoreType, int]]:
     for line in lines:
         yield scores(line)
 

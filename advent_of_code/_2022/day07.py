@@ -30,7 +30,7 @@ class SetWithAccessor(Generic[T]):
     def __getitem__(self, name: str) -> T:
         return self._items[name]
 
-    def __iter__(self) -> Generator[T, None, None]:
+    def __iter__(self) -> Generator[T]:
         yield from self._items.values()
 
     def __bool__(self) -> bool:
@@ -81,7 +81,7 @@ def set_sizes(root: Node) -> int:
     return size
 
 
-def gen_dir_sizes(root: Node) -> Generator[int, None, None]:
+def gen_dir_sizes(root: Node) -> Generator[int]:
     if not root.children:
         return
 

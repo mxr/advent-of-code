@@ -13,7 +13,7 @@ class Instruction(NamedTuple):
     val: int
 
 
-def parse(filename: str) -> Generator[Instruction, None, None]:
+def parse(filename: str) -> Generator[Instruction]:
     with open(filename) as f:
         for line in f:
             name, _, val = line.partition(" ")

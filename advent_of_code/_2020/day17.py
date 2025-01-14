@@ -57,7 +57,7 @@ class Cubes:
     def count(self) -> int:
         return sum(c == "#" for c in self.cubes.values())
 
-    def _neighbors(self, x: int, y: int, *zs: int) -> Generator[str, None, None]:
+    def _neighbors(self, x: int, y: int, *zs: int) -> Generator[str]:
         for xd, yd, *zds in self.deltas:
             yield self.cubes[
                 (x + xd, y + yd, *(z + zd for z, zd in zip(zs, zds, strict=True)))

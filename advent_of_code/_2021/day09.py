@@ -11,7 +11,7 @@ class Map:
         self.grid = grid
 
         # memoize neighbors
-        def neighbors(i: int, j: int) -> Generator[tuple[int, int, int], None, None]:
+        def neighbors(i: int, j: int) -> Generator[tuple[int, int, int]]:
             for i_delta, j_delta in (-1, 0), (+1, 0), (0, -1), (0, +1):
                 ni, nj = i + i_delta, j + j_delta
 
@@ -36,7 +36,7 @@ def part1(filename: str) -> int:
     return sum(p + 1 for p, _, _ in low_points(m))
 
 
-def low_points(m: Map) -> Generator[tuple[int, int, int], None, None]:
+def low_points(m: Map) -> Generator[tuple[int, int, int]]:
     return (
         (p, i, j)
         for i, row in enumerate(m.grid)

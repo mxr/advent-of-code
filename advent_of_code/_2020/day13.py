@@ -7,7 +7,7 @@ if TYPE_CHECKING:
     from collections.abc import Generator
 
 
-def parse_part1(filename: str) -> Generator[int, None, None]:
+def parse_part1(filename: str) -> Generator[int]:
     with open(filename) as f:
         yield int(next(f))
         yield from (int(t) for t in next(f).split(",") if not t.startswith("x"))
