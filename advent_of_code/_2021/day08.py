@@ -15,7 +15,7 @@ class Mapping(NamedTuple):
     outs: list[set[str]]
 
 
-def parse(filename: str) -> Generator[Mapping, None, None]:
+def parse(filename: str) -> Generator[Mapping]:
     with open(filename) as f:
         for line in f:
             ins, _, outs = line.partition(" | ")

@@ -13,7 +13,7 @@ RE = re.compile("#+")
 
 @functools.cache
 def parse(filename: str) -> tuple[tuple[str, tuple[int, ...]], ...]:
-    def gen() -> Generator[tuple[str, tuple[int, ...]], None, None]:
+    def gen() -> Generator[tuple[str, tuple[int, ...]]]:
         with open(filename) as solve:
             for line in solve:
                 springs, _, rnums = line.partition(" ")

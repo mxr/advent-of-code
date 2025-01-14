@@ -38,11 +38,11 @@ class Map:
 
         return moved
 
-    def ini(self) -> Generator[tuple[int, int], None, None]:
+    def ini(self) -> Generator[tuple[int, int]]:
         for i in range(self.height):
             yield i, (i + 1) % self.height
 
-    def jnj(self) -> Generator[tuple[int, int], None, None]:
+    def jnj(self) -> Generator[tuple[int, int]]:
         for j in range(self.width):
             yield j, (j + 1) % self.width
 

@@ -55,7 +55,7 @@ ONE_OP = frozenset((INPUT, OUTPUT))
 
 
 # generator IO technique adapted from anthonywritescode
-def run(codes: list[int], inp: int) -> Generator[int | None, int, None]:
+def run(codes: list[int], inp: int) -> Generator[int | None, int]:
     ip = 0
 
     read_inp = False

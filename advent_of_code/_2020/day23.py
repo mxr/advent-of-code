@@ -63,7 +63,7 @@ class Node:
         return f"Node({ns!r})"
 
 
-def parse(filename: str) -> Generator[int, None, None]:
+def parse(filename: str) -> Generator[int]:
     with open(filename) as f:
         for c in f.read().strip():
             yield int(c)

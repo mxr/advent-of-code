@@ -23,7 +23,7 @@ class MaskCommands(NamedTuple):
     commands: list[Command]
 
 
-def parse(filename: str) -> Generator[MaskCommands, None, None]:
+def parse(filename: str) -> Generator[MaskCommands]:
     with open(filename) as f:
         chunks = iter(f.read().strip().split("mask"))
         next(chunks)  # blank line
@@ -66,7 +66,7 @@ def apply(mask: str, address: int) -> str:
     )
 
 
-def gen_addrs(mask: str) -> Generator[int, None, None]:
+def gen_addrs(mask: str) -> Generator[int]:
     if "X" in mask:
         yield from gen_addrs(mask.replace("X", "0", 1))
         yield from gen_addrs(mask.replace("X", "1", 1))

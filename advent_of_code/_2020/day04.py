@@ -31,7 +31,7 @@ KEYS = frozenset(
 OPTIONAL_KEYS = frozenset(("cid",))
 
 
-def parse(filename: str) -> Generator[dict[str, str], None, None]:
+def parse(filename: str) -> Generator[dict[str, str]]:
     with open(filename) as f:
         chunk = []
         # the ('', ) ensures the last chunk gets yielded

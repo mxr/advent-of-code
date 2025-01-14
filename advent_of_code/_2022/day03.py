@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 @functools.cache
 def parse(filename: str) -> tuple[str, ...]:
-    def gen() -> Generator[str, None, None]:
+    def gen() -> Generator[str]:
         with open(filename) as f:
             for line in f:
                 yield line.strip()
@@ -18,7 +18,7 @@ def parse(filename: str) -> tuple[str, ...]:
 
 
 def part1(filename: str) -> int:
-    def common() -> Generator[str, None, None]:
+    def common() -> Generator[str]:
         for r in parse(filename):
             m = len(r) // 2
             yield (set(r[:m]) & set(r[m:])).pop()
@@ -27,7 +27,7 @@ def part1(filename: str) -> int:
 
 
 def part2(filename: str) -> int:
-    def common() -> Generator[str, None, None]:
+    def common() -> Generator[str]:
         i = 0
         rucksacks = parse(filename)
         while i < len(rucksacks):

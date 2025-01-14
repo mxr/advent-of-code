@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 @functools.cache
 def parse(filename: str) -> tuple[tuple[int, ...], ...]:
-    def gen() -> Generator[tuple[int, ...], None, None]:
+    def gen() -> Generator[tuple[int, ...]]:
         with open(filename) as f:
             for line in f:
                 yield tuple(int(n) for n in line.split())

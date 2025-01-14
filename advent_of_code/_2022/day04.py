@@ -12,7 +12,7 @@ RE = re.compile(r"\d+")
 
 @functools.cache
 def parse(filename: str) -> tuple[tuple[int, int, int, int], ...]:
-    def gen() -> Generator[tuple[int, int, int, int], None, None]:
+    def gen() -> Generator[tuple[int, int, int, int]]:
         with open(filename) as f:
             for line in f.readlines():
                 m = RE.findall(line)

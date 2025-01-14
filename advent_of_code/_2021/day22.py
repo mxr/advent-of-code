@@ -16,7 +16,7 @@ class Range(NamedTuple):
     start: int
     end: int
 
-    def __iter__(self) -> Generator[int, None, None]:
+    def __iter__(self) -> Generator[int]:
         yield from range(self.start, self.end + 1)
 
     def bound(self) -> int:
@@ -48,7 +48,7 @@ class Cube(NamedTuple):
             and self.zr.start <= o.zr.start <= o.zr.end <= self.zr.end
         )
 
-    def without(self, o: Cube) -> Generator[Cube, None, None]:
+    def without(self, o: Cube) -> Generator[Cube]:
         """returns the cubes created by removing the other cube"""
 
         s = copy(self)
@@ -114,7 +114,7 @@ class Core:
         return sum(sum(row) for face in self.cubes for row in face)
 
 
-def parse(filename: str) -> Generator[Command, None, None]:
+def parse(filename: str) -> Generator[Command]:
     with open(filename) as f:
         for line in f:
             pos, _, ranges = line.partition(" ")

@@ -6,7 +6,7 @@ if TYPE_CHECKING:
     from collections.abc import Generator
 
 
-def parse(filename: str) -> Generator[int, None, None]:
+def parse(filename: str) -> Generator[int]:
     with open(filename) as f:
         for raw in f:
             yield int(raw)

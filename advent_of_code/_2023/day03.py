@@ -25,7 +25,7 @@ def parse(filename: str) -> tuple[dict[tuple[int, int], str], list[tuple[int, in
     return engine, parts
 
 
-def neighbors(row: int, col: int) -> Generator[tuple[int, int], None, None]:
+def neighbors(row: int, col: int) -> Generator[tuple[int, int]]:
     for r in (-1, 0, 1):
         for c in (-1, 0, 1):
             if r or c:

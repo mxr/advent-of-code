@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from collections.abc import Generator
 
 
-def parse(filename: str) -> Generator[Counter[str], None, None]:
+def parse(filename: str) -> Generator[Counter[str]]:
     with open(filename) as f:
         for line in f:
             steps: Counter[str] = Counter()
@@ -49,7 +49,7 @@ def execute(filename: str, days: int) -> int:
 DELTAS = tuple(permutations((-1, 0, 1), r=3))
 
 
-def neighbors(q: int, r: int, s: int) -> Generator[tuple[int, int, int], None, None]:
+def neighbors(q: int, r: int, s: int) -> Generator[tuple[int, int, int]]:
     for qd, rd, sd in DELTAS:
         yield q + qd, r + rd, s + sd
 

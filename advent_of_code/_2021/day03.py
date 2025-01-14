@@ -7,7 +7,7 @@ if TYPE_CHECKING:
     from collections.abc import Generator
 
 
-def parse(filename: str) -> Generator[str, None, None]:
+def parse(filename: str) -> Generator[str]:
     with open(filename) as f:
         for line in f:
             yield line.strip()

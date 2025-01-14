@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 RE = re.compile(r"(\d+) (\w+ \w+) bags?")
 
 
-def parse(filename: str) -> Generator[tuple[str, list[tuple[int, str]]], None, None]:
+def parse(filename: str) -> Generator[tuple[str, list[tuple[int, str]]]]:
     with open(filename) as f:
         for line in f.readlines():
             first, _, rest = line.partition(" contain ")

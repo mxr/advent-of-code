@@ -6,7 +6,7 @@ if TYPE_CHECKING:
     from collections.abc import Generator
 
 
-def parse(filename: str) -> Generator[list[set[str]], None, None]:
+def parse(filename: str) -> Generator[list[set[str]]]:
     with open(filename) as f:
         for chunk in f.read().split("\n\n"):
             yield [set(c) for c in chunk.split()]

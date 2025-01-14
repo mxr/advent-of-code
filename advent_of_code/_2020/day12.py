@@ -69,7 +69,7 @@ class ShipWithWaypoint:
         return abs(self.x) + abs(self.y)
 
 
-def parse(filename: str) -> Generator[tuple[str, int], None, None]:
+def parse(filename: str) -> Generator[tuple[str, int]]:
     with open(filename) as f:
         for line in f:
             yield line[0], int(line[1:])
