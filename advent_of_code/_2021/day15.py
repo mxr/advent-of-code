@@ -38,7 +38,7 @@ class Map:
                         graph[i, j][ni, nj] = self.grid[ni][nj]
                         graph[ni, nj][i, j] = self.grid[i][j]
 
-        min_dists = {k: sys.maxsize for k in graph}
+        min_dists = dict.fromkeys(graph, sys.maxsize)
         min_dists[0, 0] = 0
 
         # TODO - very slow :)

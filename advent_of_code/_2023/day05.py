@@ -22,7 +22,9 @@ def parse(
             mappings = tuple(
                 sorted(
                     (
-                        cast(tuple[int, int, int], tuple(int(rn) for rn in rns.split()))
+                        cast(
+                            "tuple[int, int, int]", tuple(int(rn) for rn in rns.split())
+                        )
                         for rns in rnums
                     ),
                     key=lambda ns: ns[1],
@@ -60,7 +62,7 @@ def part2(filename: str) -> int:
     seeds, mappings = parse(filename)
     m = sys.maxsize
     for seed in itertools.batched(seeds, 2):
-        ranges = [cast(tuple[int, int], seed)]
+        ranges = [cast("tuple[int, int]", seed)]
         curr = "seed"
         while curr != "location":
             nxt, vals = mappings[curr]
