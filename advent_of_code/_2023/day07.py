@@ -41,7 +41,7 @@ def key_part1(hand: str) -> SortKey:
     typ = TYPES[mctype(Counter(hand).most_common())]
 
     strengths = cast(
-        tuple[int, int, int, int, int], tuple(STRENGTHS_P1[c] for c in hand)
+        "tuple[int, int, int, int, int]", tuple(STRENGTHS_P1[c] for c in hand)
     )
 
     return SortKey((typ, *strengths))
@@ -64,7 +64,7 @@ def key_part2(hand: str) -> SortKey:
         return mctype(mc)
 
     strengths = cast(
-        tuple[int, int, int, int, int], tuple(STRENGTHS_P2[c] for c in hand)
+        "tuple[int, int, int, int, int]", tuple(STRENGTHS_P2[c] for c in hand)
     )
 
     return SortKey((TYPES[mctype_part2()], *strengths))
