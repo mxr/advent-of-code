@@ -20,7 +20,7 @@ def race(n: int, t: int, d: int) -> bool:
 def part1(filename: str) -> int:
     p = 1
 
-    ts, ds = itertools.batched(ns := parse(filename), len(ns) // 2)
+    ts, ds = itertools.batched(ns := parse(filename), len(ns) // 2, strict=True)
     for t, d in zip(ts, ds, strict=True):
         wins = 0
         for n in range(1, t):
@@ -36,7 +36,8 @@ def part1(filename: str) -> int:
 def part2(filename: str) -> int:
     ns = parse(filename)
     t, d = (
-        int("".join(str(n) for n in ds)) for ds in itertools.batched(ns, len(ns) // 2)
+        int("".join(str(n) for n in ds))
+        for ds in itertools.batched(ns, len(ns) // 2, strict=True)
     )
 
     # binsearch from https://stackoverflow.com/a/38058945

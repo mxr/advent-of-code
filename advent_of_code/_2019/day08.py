@@ -15,7 +15,8 @@ def parse(filename: str) -> str:
 
 def part1(filename: str) -> int:
     minlayer = min(
-        batched(parse(filename), WIDTH * HEIGHT), key=lambda layer: layer.count("0")
+        batched(parse(filename), WIDTH * HEIGHT, strict=True),
+        key=lambda layer: layer.count("0"),
     )
 
     return minlayer.count("1") * minlayer.count("2")
@@ -23,8 +24,8 @@ def part1(filename: str) -> int:
 
 def part2(filename: str) -> int:
     layers = tuple(
-        tuple(batched(layer, WIDTH))
-        for layer in batched(parse(filename), WIDTH * HEIGHT)
+        tuple(batched(layer, WIDTH, strict=True))
+        for layer in batched(parse(filename), WIDTH * HEIGHT, strict=True)
     )
 
     out = [[" "] * WIDTH for _ in range(HEIGHT)]

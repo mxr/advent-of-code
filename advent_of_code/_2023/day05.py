@@ -61,7 +61,7 @@ def part2(filename: str) -> int:
     # convert ranges using mapping, adapted from reddit
     seeds, mappings = parse(filename)
     m = sys.maxsize
-    for seed in itertools.batched(seeds, 2):
+    for seed in itertools.batched(seeds, 2, strict=True):
         ranges = [cast("tuple[int, int]", seed)]
         curr = "seed"
         while curr != "location":
