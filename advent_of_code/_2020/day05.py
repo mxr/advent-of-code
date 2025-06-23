@@ -8,7 +8,6 @@ if TYPE_CHECKING:
     from collections.abc import Generator
 
 
-
 def pairwise[T](iterable: Iterable[T]) -> Iterable[tuple[T, T]]:
     a, b = tee(iterable)
     next(b, None)
