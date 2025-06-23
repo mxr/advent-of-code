@@ -6,13 +6,11 @@ import re
 from itertools import permutations
 from typing import Any
 from typing import TYPE_CHECKING
-from typing import TypeVar
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
     from collections.abc import Generator
 
-T = TypeVar("T")
 
 RE = re.compile(r"(\d+),(\d+)\]")
 RE_D = re.compile(r"\d+")
@@ -92,7 +90,7 @@ def can_explode(sn: str) -> tuple[bool, int, int, int, int]:
     return False, -1, -1, -1, -1
 
 
-def last(ms: Iterable[T]) -> T | None:
+def last[T](ms: Iterable[T]) -> T | None:
     lm = None
     for m in ms:
         lm = m
