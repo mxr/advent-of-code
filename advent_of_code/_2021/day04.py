@@ -4,15 +4,12 @@ from dataclasses import dataclass
 from itertools import zip_longest
 from typing import NamedTuple
 from typing import TYPE_CHECKING
-from typing import TypeVar
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
 
-T = TypeVar("T")
 
-
-def grouper(iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
+def grouper[T](iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
     args = [iter(iterable)] * n
     return zip_longest(*args)
 
