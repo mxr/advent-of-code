@@ -4,8 +4,6 @@ import bisect
 import functools
 from dataclasses import dataclass
 from dataclasses import field
-from typing import Generic
-from typing import Protocol
 from typing import TYPE_CHECKING
 from typing import TypeVar
 
@@ -17,11 +15,10 @@ class WithName(Protocol):
     name: str
 
 
-T = TypeVar("T", bound=WithName)
 
 
 @dataclass
-class SetWithAccessor(Generic[T]):
+class SetWithAccessor[WithName]:
     _items: dict[str, T] = field(default_factory=dict)
 
     def add(self, node: T) -> None:
