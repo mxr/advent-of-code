@@ -15,7 +15,9 @@ if TYPE_CHECKING:
 class WithName(Protocol):
     name: str
 
-T = TypeVar('T', bound=WithName)
+
+T = TypeVar("T", bound=WithName)
+
 
 @dataclass
 class SetWithAccessor[T]:
