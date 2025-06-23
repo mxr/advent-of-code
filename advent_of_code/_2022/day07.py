@@ -15,8 +15,6 @@ class WithName(Protocol):
     name: str
 
 
-
-
 @dataclass
 class SetWithAccessor[WithName]:
     _items: dict[str, T] = field(default_factory=dict)
