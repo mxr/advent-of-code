@@ -8,12 +8,9 @@ from operator import eq
 from operator import lt
 from operator import mul
 from typing import TYPE_CHECKING
-from typing import TypeVar
 
 if TYPE_CHECKING:
     from collections.abc import Generator
-
-T = TypeVar("T")
 
 ADD = 1
 MUL = 2
@@ -96,7 +93,7 @@ def run(codes: list[int], inp: int) -> Generator[int | None, int]:
     return
 
 
-def must(t: T | None) -> T:
+def must[T](t: T | None) -> T:
     assert t is not None
     return t
 
