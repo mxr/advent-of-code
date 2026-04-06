@@ -62,7 +62,7 @@ def part2(filename: str) -> int:
     seeds, mappings = parse(filename)
     m = sys.maxsize
     for seed in itertools.batched(seeds, 2, strict=True):
-        ranges = [cast("tuple[int, int]", seed)]
+        ranges = [seed]
         curr = "seed"
         while curr != "location":
             nxt, vals = mappings[curr]
