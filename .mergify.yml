@@ -7,10 +7,3 @@ pull_request_rules:
   actions:
     merge:
       method: squash
-
-- name: automatic merge for dependabot updates
-  conditions:
-  - author=dependabot[bot]
-  actions:
-    merge:
-      method: squash
