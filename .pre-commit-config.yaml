@@ -34,3 +34,17 @@ repos:
   hooks:
   - id: mypy
     language_version: python3.13
+    additional_dependencies:
+    - dijkstar
+    - setuptools
+- repo: https://github.com/mxr/mirrors-ty
+  rev: b0cc809b854427130bbdc84b922e0e38c6c6b8eb  # frozen: v0.0.48
+  hooks:
+  - id: ty
+    additional_dependencies:
+    - dijkstar
+    - setuptools
+- repo: https://github.com/mxr/sync-typing-deps
+  rev: v0.5.2
+  hooks:
+  - id: sync-typing-deps

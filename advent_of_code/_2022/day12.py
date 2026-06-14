@@ -3,7 +3,7 @@ from __future__ import annotations
 import contextlib
 from typing import TYPE_CHECKING
 
-import dijkstar  # pip install Dijkstar
+import dijkstar
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -72,7 +72,6 @@ def part2(filename: str) -> int:
     m = float("inf")
     for s in starts:
         with contextlib.suppress(dijkstar.NoPathError):
-            dijkstar.single_source_shortest_paths()
             tc = dijkstar.find_path(graph, s, end).total_cost
             m = min(m, tc)
 
