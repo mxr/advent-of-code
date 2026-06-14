@@ -1,3 +1,23 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[dependency-groups]
+dev = [
+  "dijkstar",
+]
+
+[project]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
+dynamic = ["version"]
+license = "MIT"
+name = "advent_of_code"
+readme = "README.md"
+requires-python = ">=3.13"
+
 [tool.mypy]
 check_untyped_defs = true
 disallow_any_generics = true
@@ -18,3 +38,6 @@ extend-select = [
   "SIM",  # see flake8-simplify
   "TC",  # see flake8-type-checking
 ]
+
+[tool.setuptools.packages.find]
+where = ["."]
