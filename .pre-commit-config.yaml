@@ -33,7 +33,7 @@ repos:
   rev: d2823d321df3af8f878f7ee3414dc94d037145b9  # frozen: v2.1.0
   hooks:
   - id: mypy
-    language_version: python3.13
+    language_version: python3.14
     additional_dependencies:
     - dijkstar
     - setuptools
