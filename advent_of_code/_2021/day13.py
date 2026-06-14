@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import NamedTuple
+from typing import override
 
 
 class Fold(NamedTuple):
@@ -40,6 +41,7 @@ class Paper:
 
         self.height, self.width = len(self.marks), len(self.marks[0])
 
+    @override
     def __str__(self) -> str:
         return "\n".join("".join("#" if m else "." for m in row) for row in self.marks)
 

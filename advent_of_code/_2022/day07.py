@@ -4,6 +4,7 @@ import bisect
 import functools
 from dataclasses import dataclass
 from dataclasses import field
+from typing import override
 from typing import Protocol
 from typing import TYPE_CHECKING
 
@@ -39,6 +40,7 @@ class Node:
     size: int | None = None
     children: SetWithAccessor[Node] = field(default_factory=SetWithAccessor)
 
+    @override
     def __hash__(self) -> int:
         return hash(self.name)
 

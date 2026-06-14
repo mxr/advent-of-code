@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import chain
+from typing import override
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -53,6 +54,7 @@ class Node:
 
         return size
 
+    @override
     def __repr__(self) -> str:
         ns = []
         c: Node | None = self
@@ -80,6 +82,7 @@ def execute(cups: Node, moves: int) -> Node:
         p = []
         ps = h.next()
         curr = ps
+        pe = curr
         for _ in range(3):
             pe = curr
             p.append(curr.n)
