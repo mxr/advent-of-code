@@ -82,8 +82,7 @@ def part2(filename: str) -> int:
                 out[name] = p
 
         for positions in names.values():
-            if p in positions:
-                positions.remove(p)
+            positions.difference_update(positions_to_pop)
 
         for name in names_to_pop:
             del names[name]

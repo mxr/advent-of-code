@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from copy import copy
 from typing import NamedTuple
+from typing import override
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -16,6 +17,7 @@ class Range(NamedTuple):
     start: int
     end: int
 
+    @override
     def __iter__(self) -> Generator[int]:
         yield from range(self.start, self.end + 1)
 

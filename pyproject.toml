@@ -41,3 +41,6 @@ extend-select = [
 
 [tool.setuptools.packages.find]
 where = ["."]
+
+[tool.ty.rules]
+all = "error"

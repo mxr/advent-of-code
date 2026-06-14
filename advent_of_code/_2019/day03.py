@@ -3,6 +3,7 @@ from __future__ import annotations
 import functools
 from collections import UserDict
 from enum import Enum
+from typing import override
 from typing import TYPE_CHECKING
 from typing import TypeVar
 
@@ -38,6 +39,7 @@ U = TypeVar("U")
 
 
 class SetOnceDict(UserDict[T, U]):
+    @override
     def __setitem__(self, key: T, item: U) -> None:
         if item not in self.data:
             super().__setitem__(key, item)
