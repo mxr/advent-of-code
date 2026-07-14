@@ -5,6 +5,8 @@ repos:
   - id: check-docstring-first
   - id: debug-statements
   - id: end-of-file-fixer
+  - id: pretty-format-json
+    args: [--autofix]
   - id: trailing-whitespace
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
   rev: 4380fbb73a154b5f5624794c1c78d9719ccc860f  # frozen: v2.16.0
