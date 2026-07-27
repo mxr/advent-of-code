@@ -14,7 +14,7 @@ RE = re.compile(r"\d+")
 def parse(filename: str) -> tuple[tuple[int, int, int, int], ...]:
     def gen() -> Generator[tuple[int, int, int, int]]:
         with open(filename) as f:
-            for line in f.readlines():
+            for line in f:
                 m = RE.findall(line)
                 assert len(m) == 4, (m, line)
 

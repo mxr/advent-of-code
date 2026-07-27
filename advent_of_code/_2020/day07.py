@@ -12,7 +12,7 @@ RE = re.compile(r"(\d+) (\w+ \w+) bags?")
 
 def parse(filename: str) -> Generator[tuple[str, list[tuple[int, str]]]]:
     with open(filename) as f:
-        for line in f.readlines():
+        for line in f:
             first, _, rest = line.partition(" contain ")
             outer = first[: -len(" bags")]
             inner = [(int(n), c) for (n, c) in RE.findall(rest)]

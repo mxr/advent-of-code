@@ -2,15 +2,14 @@ from __future__ import annotations
 
 import re
 from collections import defaultdict
-from typing import NamedTuple
-from typing import NewType
+from typing import NamedTuple, NewType
 
 RE = re.compile(r"(\d+)-(\d+)")
 
 
 class Range(NamedTuple):
-    min: int  # noqa: A003
-    max: int  # noqa: A003
+    min: int
+    max: int
 
     def valid(self, n: int) -> bool:
         return self.min <= n <= self.max

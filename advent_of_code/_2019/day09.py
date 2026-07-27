@@ -2,12 +2,8 @@ from __future__ import annotations
 
 import functools
 from collections import defaultdict
-from operator import add
-from operator import eq
-from operator import lt
-from operator import mul
+from operator import add, eq, lt, mul
 from typing import TypeVar
-
 
 T = TypeVar("T")
 

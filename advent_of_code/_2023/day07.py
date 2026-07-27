@@ -2,13 +2,10 @@ from __future__ import annotations
 
 import functools
 from collections import Counter
-from typing import cast
-from typing import NewType
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, NewType, cast
 
 if TYPE_CHECKING:
-    from collections.abc import Callable
-    from collections.abc import Generator
+    from collections.abc import Callable, Generator
 
 STRENGTHS_P1_S = ("2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A")
 STRENGTHS_P1 = {s: i for i, s in enumerate(STRENGTHS_P1_S)}

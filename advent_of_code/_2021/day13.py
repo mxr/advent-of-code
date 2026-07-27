@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from typing import NamedTuple
-from typing import override
+from typing import NamedTuple, override
 
 
 class Fold(NamedTuple):

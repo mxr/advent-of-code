@@ -4,8 +4,7 @@ from collections import deque
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
-    from collections.abc import Generator
+    from collections.abc import Generator, Iterable
 
 
 def parse(filename: str) -> Generator[int]:

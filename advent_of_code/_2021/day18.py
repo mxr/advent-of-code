@@ -4,12 +4,10 @@ import ast
 import math
 import re
 from itertools import permutations
-from typing import Any
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
-    from collections.abc import Generator
+    from collections.abc import Generator, Iterable
 
 
 RE = re.compile(r"(\d+),(\d+)\]")
