@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import re
 from collections import defaultdict
-from typing import NamedTuple, NewType
+from typing import NamedTuple
+from typing import NewType
 
 RE = re.compile(r"(\d+)-(\d+)")
 

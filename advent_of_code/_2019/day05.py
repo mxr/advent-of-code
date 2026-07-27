@@ -1,7 +1,10 @@
 from __future__ import annotations
 
 import functools
-from operator import add, eq, lt, mul
+from operator import add
+from operator import eq
+from operator import lt
+from operator import mul
 
 ADD = 1
 MUL = 2

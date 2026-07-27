@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import functools
-from itertools import cycle, permutations
-from operator import add, eq, lt, mul
+from itertools import cycle
+from itertools import permutations
+from operator import add
+from operator import eq
+from operator import lt
+from operator import mul
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:

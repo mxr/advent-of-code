@@ -37,7 +37,12 @@ extend-select = [
   "C4",  # see flake8-comprehension
   "SIM",  # see flake8-simplify
   "TC",  # see flake8-type-checking
+  "I",  # sort imports
 ]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+required-imports = ["from __future__ import annotations"]
 
 [tool.setuptools.packages.find]
 where = ["."]

@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import functools
-from collections import Counter, defaultdict
+from collections import Counter
+from collections import defaultdict
 from itertools import permutations
 from typing import TYPE_CHECKING
 

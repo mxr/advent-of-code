@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import bisect
 import functools
-from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Protocol, override
+from dataclasses import dataclass
+from dataclasses import field
+from typing import TYPE_CHECKING
+from typing import Protocol
+from typing import override
 
 if TYPE_CHECKING:
     from collections.abc import Generator

@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import functools
 import re
-from collections import Counter, defaultdict
-from typing import TYPE_CHECKING, NamedTuple, NewType
+from collections import Counter
+from collections import defaultdict
+from typing import TYPE_CHECKING
+from typing import NamedTuple
+from typing import NewType
 
 if TYPE_CHECKING:
     from collections.abc import Generator

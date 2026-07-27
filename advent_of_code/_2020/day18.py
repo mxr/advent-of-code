@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from operator import add, mul
+from operator import add
+from operator import mul
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:

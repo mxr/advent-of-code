@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import functools
-from operator import add, mul
+from operator import add
+from operator import mul
 
 ADD = 1
 HALT = 99

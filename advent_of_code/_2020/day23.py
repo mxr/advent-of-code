@@ -2,10 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import chain
-from typing import TYPE_CHECKING, override
+from typing import TYPE_CHECKING
+from typing import override
 
 if TYPE_CHECKING:
-    from collections.abc import Generator, Iterable
+    from collections.abc import Generator
+    from collections.abc import Iterable
 
 
 @dataclass

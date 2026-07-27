@@ -3,7 +3,9 @@ from __future__ import annotations
 import functools
 from collections import UserDict
 from enum import Enum
-from typing import TYPE_CHECKING, TypeVar, override
+from typing import TYPE_CHECKING
+from typing import TypeVar
+from typing import override
 
 if TYPE_CHECKING:
     from collections.abc import Mapping
