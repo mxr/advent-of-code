@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 from itertools import cycle
-from typing import NewType
 from typing import TYPE_CHECKING
+from typing import NewType
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
     from collections.abc import Generator
+    from collections.abc import Iterable
 
 SeatHash = NewType("SeatHash", tuple[tuple[str, ...], ...])
 

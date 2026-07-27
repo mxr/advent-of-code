@@ -4,9 +4,9 @@ import functools
 import re
 from collections import Counter
 from collections import defaultdict
+from typing import TYPE_CHECKING
 from typing import NamedTuple
 from typing import NewType
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from collections.abc import Generator

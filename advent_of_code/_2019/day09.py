@@ -8,7 +8,6 @@ from operator import lt
 from operator import mul
 from typing import TypeVar
 
-
 T = TypeVar("T")
 
 ADD = 1

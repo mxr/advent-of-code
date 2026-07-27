@@ -5,8 +5,8 @@ from enum import Enum
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
     from collections.abc import Generator
+    from collections.abc import Iterable
 
 
 SCORES = {")": 3, "]": 57, "}": 1197, ">": 25137}

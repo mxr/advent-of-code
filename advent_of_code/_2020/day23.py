@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import chain
-from typing import override
 from typing import TYPE_CHECKING
+from typing import override
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
     from collections.abc import Generator
+    from collections.abc import Iterable
 
 
 @dataclass
@@ -27,7 +27,7 @@ class Node:
 
         return h
 
-    def next(self) -> Node:  # noqa: A003
+    def next(self) -> Node:
         # should only be called when we know this isn't null
         return self.nn  # type: ignore
 

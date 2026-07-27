@@ -3,9 +3,9 @@ from __future__ import annotations
 import functools
 from collections import UserDict
 from enum import Enum
-from typing import override
 from typing import TYPE_CHECKING
 from typing import TypeVar
+from typing import override
 
 if TYPE_CHECKING:
     from collections.abc import Mapping
@@ -27,7 +27,7 @@ class Dir(Enum):
 
 
 class Step:
-    dir: Dir  # noqa: A003
+    dir: Dir
     val: int
 
     def __init__(self, raw: str) -> None:

@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from collections import defaultdict
 from itertools import chain
-from typing import NamedTuple
 from typing import TYPE_CHECKING
+from typing import NamedTuple
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
     from collections.abc import Generator
+    from collections.abc import Iterable
 
 
 class Mapping(NamedTuple):

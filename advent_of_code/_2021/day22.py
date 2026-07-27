@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import re
 from copy import copy
+from typing import TYPE_CHECKING
 from typing import NamedTuple
 from typing import override
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from collections.abc import Generator

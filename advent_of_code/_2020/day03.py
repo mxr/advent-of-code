@@ -23,7 +23,7 @@ class Map:
 
 def parse(filename: str) -> Map:
     with open(filename) as f:
-        grid = [[Land(c == "#") for c in line.strip()] for line in f.readlines()]
+        grid = [[Land(c == "#") for c in line.strip()] for line in f]
 
     return Map(grid)
 

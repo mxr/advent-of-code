@@ -4,7 +4,6 @@ import functools
 import re
 from itertools import product
 
-
 RE = re.compile(r"-?\d+")
 
 

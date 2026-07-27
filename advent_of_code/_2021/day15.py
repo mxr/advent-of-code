@@ -4,7 +4,6 @@ import sys
 from collections import defaultdict
 from typing import NewType
 
-
 Graph = NewType("Graph", dict[tuple[int, int], dict[tuple[int, int], int]])
 
 

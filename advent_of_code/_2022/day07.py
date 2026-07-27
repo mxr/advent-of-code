@@ -4,9 +4,9 @@ import bisect
 import functools
 from dataclasses import dataclass
 from dataclasses import field
-from typing import override
-from typing import Protocol
 from typing import TYPE_CHECKING
+from typing import Protocol
+from typing import override
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -49,7 +49,7 @@ def parse(filename: str) -> Node:
     with open(filename) as f:
         next(f)
         curr = Node("/")
-        for line in f.readlines():
+        for line in f:
             if line.startswith("$ ls"):
                 continue
             elif line.startswith("dir"):

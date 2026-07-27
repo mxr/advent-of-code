@@ -9,8 +9,8 @@ RE = re.compile(r"(\d+)-(\d+)")
 
 
 class Range(NamedTuple):
-    min: int  # noqa: A003
-    max: int  # noqa: A003
+    min: int
+    max: int
 
     def valid(self, n: int) -> bool:
         return self.min <= n <= self.max

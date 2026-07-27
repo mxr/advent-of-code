@@ -4,8 +4,8 @@ from itertools import tee
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
     from collections.abc import Generator
+    from collections.abc import Iterable
 
 
 def pairwise[T](iterable: Iterable[T]) -> Iterable[tuple[T, T]]:

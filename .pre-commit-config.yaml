@@ -15,13 +15,8 @@ repos:
     args: [--autofix, --trailing-comma]
   - id: pretty-format-yaml
     args: [--autofix]
-- repo: https://github.com/asottile/reorder-python-imports
-  rev: 5e38415c12154247a099c7023c210e3d458275b5  # frozen: v3.17.0
-  hooks:
-  - id: reorder-python-imports
-    args: [--py313-plus, --add-import, from __future__ import annotations]
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: 2700fd5671c633760d912769c041bfcde2b9a01b  # frozen: v0.15.22
+  rev: cb8c523fd4835aba42af70f4cad5568db4df0b6c  # frozen: v0.16.0
   hooks:
   - id: ruff-check
     args: [--fix]
@@ -33,15 +28,15 @@ repos:
     language_version: python3.14
     additional_dependencies:
     - dijkstar
-    - setuptools
+    - types-setuptools
 - repo: https://github.com/mxr/mirrors-ty
-  rev: febed8a7b2665e80a9d3855c59ac716a6284d628  # frozen: v0.0.61
+  rev: d7f08bf6b37691c482773f198ba01539eb331d6a  # frozen: v0.0.63
   hooks:
   - id: ty
     additional_dependencies:
     - dijkstar
-    - setuptools
+    - types-setuptools
 - repo: https://github.com/mxr/sync-typing-deps
-  rev: v0.5.3
+  rev: v0.5.4
   hooks:
   - id: sync-typing-deps

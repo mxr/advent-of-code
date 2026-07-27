@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import functools
 from collections import Counter
-from typing import cast
-from typing import NewType
 from typing import TYPE_CHECKING
+from typing import NewType
+from typing import cast
 
 if TYPE_CHECKING:
     from collections.abc import Callable
