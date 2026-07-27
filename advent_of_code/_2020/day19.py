@@ -37,7 +37,7 @@ def part1(filename: str) -> int:
 
 
 def part2(filename: str) -> int:
-    rules, msgs = parse(filename)
+    rules, _ = parse(filename)
 
     rules.update({8: "42 | 42 8", 11: "42 31 | 42 11 31"})
 
