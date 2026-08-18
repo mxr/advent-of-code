@@ -1,6 +1,7 @@
 import re
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
+from typing import cast
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -29,7 +30,7 @@ class Validator:
 def parse(filename: str) -> Generator[tuple[Validator, str]]:
     with open(filename) as f:
         for left, right, char, pw in RE.findall(f.read()):
-            yield Validator(int(left), int(right), char), str(pw)
+            yield Validator(int(left), int(right), char), cast("str", pw)
 
 
 def part1(filename: str) -> int:

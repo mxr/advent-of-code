@@ -85,7 +85,7 @@ def part2(filename: str) -> int:
         for name in names_to_pop:
             del names[name]
 
-    product: int = 1
+    product = 1
     for name, position in out.items():
         if name.startswith("departure"):
             product *= yours[position]

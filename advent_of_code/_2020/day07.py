@@ -1,6 +1,7 @@
 import functools
 import re
 from typing import TYPE_CHECKING
+from typing import cast
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -13,7 +14,7 @@ def parse(filename: str) -> Generator[tuple[str, list[tuple[int, str]]]]:
         for line in f:
             first, _, rest = line.partition(" contain ")
             outer = first[: -len(" bags")]
-            inner = [(int(n), str(c)) for (n, c) in RE.findall(rest)]
+            inner = [(int(n), cast("str", (c))) for (n, c) in RE.findall(rest)]
             yield outer, inner
 
 

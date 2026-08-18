@@ -1,6 +1,7 @@
 import itertools
 import re
 from typing import TYPE_CHECKING
+from typing import cast
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -80,13 +81,14 @@ def validate_height(val: str) -> bool:
     if not match:
         return False
 
-    height, unit = int(match.group(1)), str(match.group(2))
-    # fmt: off
-    return bool(
-        (unit == "cm" and 150 <= height <= 193) or
-        (unit == "in" and 59 <= height <= 76)
+    height, unit = int(match.group(1)), match.group(2)
+    return cast(
+        "bool",
+        (
+            (unit == "cm" and 150 <= height <= 193)
+            or (unit == "in" and 59 <= height <= 76)
+        ),
     )
-    # fmt: on
 
 
 def validate_hair(val: str) -> bool:

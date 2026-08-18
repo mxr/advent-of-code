@@ -58,7 +58,7 @@ def part1(filename: str) -> int:
 def part2(filename: str) -> int:
     # convert ranges using mapping, adapted from reddit
     seeds, mappings = parse(filename)
-    m: int = sys.maxsize
+    m = sys.maxsize
     for seed in itertools.batched(seeds, 2, strict=True):
         ranges: list[tuple[int, int]] = [seed]
         curr = "seed"
