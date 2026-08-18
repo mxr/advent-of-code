@@ -1,6 +1,3 @@
-from __future__ import annotations
-
-
 def parse(filename: str, part: int) -> tuple[list[list[tuple[int, int]]], int, int]:
     max_x, max_y = 0, 0
     paths = []
