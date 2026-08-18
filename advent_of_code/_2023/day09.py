@@ -17,7 +17,7 @@ def parse(filename: str) -> tuple[tuple[int, ...], ...]:
 
 
 def part1(filename: str) -> int:
-    t: int = 0
+    t = 0
     for seq in parse(filename):
         seqs = [list(seq)]
         while not all(n == 0 for n in seqs[-1]):
