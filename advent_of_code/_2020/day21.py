@@ -5,6 +5,7 @@ from collections import defaultdict
 from typing import TYPE_CHECKING
 from typing import NamedTuple
 from typing import NewType
+from typing import cast
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -89,7 +90,9 @@ def execute(filename: str) -> tuple[int, str]:
             if n == 0:
                 del a2is[alg]
 
-    p2: str = ",".join(sorted(dangerous, key=lambda i: dangerous[Ingredient(i)]))
+    p2 = cast(
+        "str", ",".join(sorted(dangerous, key=lambda i: dangerous[Ingredient(i)]))
+    )
 
     return p1, p2
 
