@@ -1,10 +1,6 @@
 import functools
 from collections import Counter
-from itertools import tee
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from collections.abc import Iterator
+from itertools import pairwise
 
 
 @functools.cache
@@ -14,13 +10,6 @@ def parse(filename: str) -> tuple[int, int]:
     return int(rl), int(rh)
 
 
-def pairs(digits: str) -> tuple[Iterator[str], Iterator[str]]:
-    first, second = tee(digits)
-    next(second)
-
-    return first, second
-
-
 def part1(filename: str) -> int:
     lo, hi = parse(filename)
 
@@ -28,9 +17,9 @@ def part1(filename: str) -> int:
     for n in range(lo, hi + 1):
         digits = str(n)
 
-        total += any(
-            int(f) == int(s) for f, s in zip(*pairs(digits), strict=True)
-        ) and all(int(f) <= int(s) for f, s in zip(*pairs(digits), strict=True))
+        total += any(int(f) == int(s) for f, s in pairwise(digits)) and all(
+            int(f) <= int(s) for f, s in pairwise(digits)
+        )
 
     return total
 
@@ -43,7 +32,7 @@ def part2(filename: str) -> int:
         digits = str(n)
 
         total += (2 in Counter(digits).values()) and all(
-            int(f) <= int(s) for f, s in zip(*pairs(digits), strict=True)
+            int(f) <= int(s) for f, s in pairwise(digits)
         )
 
     return total
