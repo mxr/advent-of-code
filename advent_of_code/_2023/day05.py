@@ -60,13 +60,13 @@ def part1(filename: str) -> int:
 def part2(filename: str) -> int:
     # convert ranges using mapping, adapted from reddit
     seeds, mappings = parse(filename)
-    m = sys.maxsize
+    m: int = sys.maxsize
     for seed in itertools.batched(seeds, 2, strict=True):
-        ranges = [seed]
+        ranges: list[tuple[int, int]] = [seed]
         curr = "seed"
         while curr != "location":
             nxt, vals = mappings[curr]
-            new_ranges = []
+            new_ranges: list[tuple[int, int]] = []
             while ranges:
                 rs, rl = ranges.pop()
                 for drs, srs, srl in vals:

@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from itertools import zip_longest
 from typing import TYPE_CHECKING
 from typing import NamedTuple
+from typing import cast
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
@@ -11,7 +12,7 @@ if TYPE_CHECKING:
 
 def grouper[T](iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
     args = [iter(iterable)] * n
-    return zip_longest(*args)
+    return cast("Iterable[tuple[T, ...]]", zip_longest(*args))
 
 
 @dataclass

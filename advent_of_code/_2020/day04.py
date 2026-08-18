@@ -82,9 +82,9 @@ def validate_height(val: str) -> bool:
     if not match:
         return False
 
-    height, unit = int(match.group(1)), match.group(2)
+    height, unit = int(match.group(1)), str(match.group(2))
     # fmt: off
-    return (
+    return bool(
         (unit == "cm" and 150 <= height <= 193) or
         (unit == "in" and 59 <= height <= 76)
     )
