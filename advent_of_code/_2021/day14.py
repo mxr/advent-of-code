@@ -1,5 +1,5 @@
 from collections import Counter
-from itertools import tee
+from itertools import pairwise
 
 
 def parse(filename: str) -> tuple[str, dict[tuple[str, str], str]]:
@@ -27,9 +27,7 @@ def execute(filename: str, n: int) -> int:
 
     c = Counter(start)
 
-    s1, s2 = tee(start)
-    next(s2)
-    buckets = Counter(zip(s1, s2))  # noqa: B905 because s2 ends before s1
+    buckets = Counter(pairwise(start))
     for _ in range(n):
         for b, v in tuple(buckets.items()):  # avoid mutating while iterating
             (c1, c2), c3 = b, rules[b]

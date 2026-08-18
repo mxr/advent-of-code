@@ -1,15 +1,8 @@
-from itertools import tee
+from itertools import pairwise
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from collections.abc import Generator
-    from collections.abc import Iterable
-
-
-def pairwise[T](iterable: Iterable[T]) -> Iterable[tuple[T, T]]:
-    a, b = tee(iterable)
-    next(b, None)
-    return zip(a, b, strict=True)
 
 
 def parse(filename: str) -> Generator[tuple[str, str]]:
