@@ -14,7 +14,7 @@ def parse(filename: str) -> dict[str, set[str]]:
             if s != "start" and e != "end":
                 paths.append((e, s))
 
-    caves = defaultdict(set)
+    caves: dict[str, set[str]] = defaultdict(set)
     for s, e in paths:
         caves[s].add(e)
 

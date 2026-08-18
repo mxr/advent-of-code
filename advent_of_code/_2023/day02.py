@@ -4,6 +4,7 @@ import functools
 import math
 import re
 from typing import TYPE_CHECKING
+from typing import cast
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -46,7 +47,7 @@ def part1(filename: str) -> int:
 
 def part2(filename: str) -> int:
     return sum(
-        math.prod(max(c) for c in zip(*cnts, strict=True))
+        math.prod(max(cast("tuple[int, ...]", c)) for c in zip(*cnts, strict=True))
         for _, cnts in parse(filename)
     )
 

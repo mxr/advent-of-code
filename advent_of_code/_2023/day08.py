@@ -12,7 +12,7 @@ def parse(filename: str) -> tuple[str, dict[str, tuple[str, str]]]:
     with open(filename) as f:
         instrs, _, *rest = f.read().splitlines()
 
-    d = {}
+    d: dict[str, tuple[str, str]] = {}
     for r in rest:
         s, lt, rt = RE.findall(r)
         d[s] = lt, rt

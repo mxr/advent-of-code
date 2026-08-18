@@ -19,13 +19,13 @@ def parse(filename: str) -> tuple[tuple[int, ...], ...]:
 
 
 def part1(filename: str) -> int:
-    t = 0
+    t: int = 0
     for seq in parse(filename):
         seqs = [list(seq)]
         while not all(n == 0 for n in seqs[-1]):
             curr = seqs[-1]
 
-            new_seq = []
+            new_seq: list[int] = []
             for i in range(1, len(curr)):
                 new_seq.append(curr[i] - curr[i - 1])
 
