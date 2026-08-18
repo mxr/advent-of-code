@@ -17,9 +17,12 @@ def part1(filename: str) -> int:
     for n in range(lo, hi + 1):
         digits = str(n)
 
-        total += any(int(f) == int(s) for f, s in pairwise(digits)) and all(
-            int(f) <= int(s) for f, s in pairwise(digits)
+        # fmt: off
+        total += (
+            any(int(f) == int(s) for f, s in pairwise(digits)) and
+            all(int(f) <= int(s) for f, s in pairwise(digits))
         )
+        # fmt: on
 
     return total
 
