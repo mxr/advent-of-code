@@ -89,6 +89,7 @@ def execute(filename: str) -> tuple[int, str]:
             if n == 0:
                 del a2is[alg]
 
+    # TODO followup after https://github.com/astral-sh/ty/issues/4311
     p2 = str(",".join(sorted(dangerous, key=lambda i: dangerous[Ingredient(i)])))
 
     return p1, p2
