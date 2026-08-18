@@ -28,7 +28,7 @@ def parse(filename: str) -> tuple[tuple[int, int], ...]:
 
 
 def part1(filename: str) -> int:
-    return sum(2 ** (p - 1) if p else 0 for _, p in parse(filename))
+    return sum(1 << (p - 1) if p else 0 for _, p in parse(filename))
 
 
 def part2(filename: str) -> int:

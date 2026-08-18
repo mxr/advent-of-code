@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 @functools.cache
 def parse(filename: str) -> tuple[dict[tuple[int, int], str], list[tuple[int, int]]]:
     with open(filename) as f:
-        engine: defaultdict[tuple[int, int], str] = defaultdict(lambda: ".")
+        engine: dict[tuple[int, int], str] = defaultdict(lambda: ".")
         parts: list[tuple[int, int]] = []
 
         for row, line in enumerate(f):
