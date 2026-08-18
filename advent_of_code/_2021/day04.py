@@ -1,16 +1,6 @@
+import itertools
 from dataclasses import dataclass
-from itertools import zip_longest
-from typing import TYPE_CHECKING
 from typing import NamedTuple
-from typing import cast
-
-if TYPE_CHECKING:
-    from collections.abc import Iterable
-
-
-def grouper[T](iterable: Iterable[T], n: int) -> Iterable[tuple[T, ...]]:
-    args = [iter(iterable)] * n
-    return cast("Iterable[tuple[T, ...]]", zip_longest(*args))
 
 
 @dataclass
@@ -75,7 +65,7 @@ def parse(filename: str) -> tuple[list[int], list[Board]]:
         drawing = [int(n) for n in next(f).split(",")]
 
         boards = []
-        for group in grouper(f, 6):
+        for group in itertools.batched(f, 6, strict=True):
             _, *lines = group
             grid = [[Cell(int(n)) for n in line.split()] for line in lines]
 
