@@ -69,11 +69,11 @@ def decode(m: Mapping) -> int:
 
 
 def group_by_len(sets: Iterable[set[str]]) -> dict[int, list[set[str]]]:
-    deduped = defaultdict(set)
+    deduped: dict[int, set[tuple[str, ...]]] = defaultdict(set)
     for s in sets:
         deduped[len(s)].add(tuple(sorted(s)))
 
-    retyped = {}
+    retyped: dict[int, list[set[str]]] = {}
     for k, vs in deduped.items():
         retyped[k] = [set(v) for v in vs]
 

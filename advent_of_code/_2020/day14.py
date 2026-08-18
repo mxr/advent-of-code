@@ -39,7 +39,7 @@ def parse(filename: str) -> Generator[MaskCommands]:
 
 
 def part1(filename: str) -> int:
-    memory = {}
+    memory: dict[int, int] = {}
     for mc in parse(filename):
         for c in mc.commands:
             memory[c.address] = mc.mask0 | c.value & mc.mask1
@@ -48,7 +48,7 @@ def part1(filename: str) -> int:
 
 
 def part2(filename: str) -> int:
-    memory = {}
+    memory: dict[int, int] = {}
     for mc in parse(filename):
         for c in mc.commands:
             for addr in gen_addrs(apply(mc.mask, c.address)):

@@ -62,13 +62,13 @@ def part2(filename: str) -> int:
 
     valid_tickets = [ticket for ticket in nearby if valid(ticket, rules)]
 
-    names = defaultdict(set)
+    names: dict[str, set[int]] = defaultdict(set)
     for i in range(len(yours)):
         for rule in rules:
             if all(rule.valid(ticket[i]) for ticket in valid_tickets):
                 names[rule.name].add(i)
 
-    out = {}
+    out: dict[str, int] = {}
     while names:
         positions_to_pop = []
         names_to_pop = []
@@ -85,7 +85,7 @@ def part2(filename: str) -> int:
         for name in names_to_pop:
             del names[name]
 
-    product = 1
+    product: int = 1
     for name, position in out.items():
         if name.startswith("departure"):
             product *= yours[position]

@@ -1,5 +1,6 @@
 import contextlib
 from typing import TYPE_CHECKING
+from typing import cast
 
 import dijkstar
 
@@ -61,7 +62,7 @@ def parse(
 def part1(filename: str) -> int:
     graph, starts, end = parse(filename)
     path = dijkstar.find_path(graph, starts[-1], end)
-    return path.total_cost
+    return cast("int", path.total_cost)
 
 
 def part2(filename: str) -> int:

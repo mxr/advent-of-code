@@ -11,8 +11,8 @@ if TYPE_CHECKING:
 @functools.cache
 def parse(filename: str) -> tuple[dict[tuple[int, int], str], list[tuple[int, int]]]:
     with open(filename) as f:
-        engine = defaultdict(lambda: ".")
-        parts = []
+        engine: dict[tuple[int, int], str] = defaultdict(lambda: ".")
+        parts: list[tuple[int, int]] = []
 
         for row, line in enumerate(f):
             for col, c in enumerate(line.strip()):

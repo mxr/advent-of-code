@@ -13,7 +13,7 @@ def parse(filename: str) -> Generator[tuple[str, list[tuple[int, str]]]]:
         for line in f:
             first, _, rest = line.partition(" contain ")
             outer = first[: -len(" bags")]
-            inner = [(int(n), c) for (n, c) in RE.findall(rest)]
+            inner = [(int(n), str(c)) for (n, c) in RE.findall(rest)]
             yield outer, inner
 
 
