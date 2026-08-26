@@ -83,8 +83,7 @@ def part2(filename: str) -> int:
                     break
                 else:
                     new_ranges.append((rs, rl))
-            ranges = new_ranges
-            curr = nxt
+            ranges, curr = new_ranges, nxt
         m = min(m, min(ranges)[0])
 
     return m
