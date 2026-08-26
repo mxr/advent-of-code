@@ -29,7 +29,7 @@ def seat_id(row_enc: str, col_enc: str) -> int:
 
 def binsearch(enc: str, cap_char: str) -> int:
     lo: int = 0
-    hi: int = 2 ** len(enc) - 1
+    hi: int = (1 << len(enc)) - 1
     for c in enc:
         if c == cap_char:
             hi = lo + (hi - lo) // 2

@@ -1,6 +1,7 @@
 import sys
 from argparse import ArgumentParser
 from typing import TYPE_CHECKING
+from typing import cast
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -15,8 +16,8 @@ def main(part1: Callable[[str], int], part2: Callable[[str], int]) -> int:
 
     args = parser.parse_args()
 
-    part: int = args.part
-    filename: str = args.filename
+    part = cast("int", args.part)
+    filename = cast("str", args.filename)
 
     if (part or 1) == 1:
         print("part1: ", end="")
