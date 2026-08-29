@@ -37,6 +37,9 @@ extend-select = [
   "TC",  # see flake8-type-checking
   "UP",  # see pyupgrade
 ]
+ignore = [
+  "S101",  # asserts are fine here, no test suite to scope the ignore to
+]
 
 [tool.ruff.lint.isort]
 force-single-line = true
