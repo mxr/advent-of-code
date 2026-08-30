@@ -12,6 +12,13 @@ repos:
     args: [--autofix, --trailing-comma]
   - id: pretty-format-yaml
     args: [--autofix]
+- repo: https://github.com/RobertCraigie/pyright-python
+  rev: 392b6ba8e54be6d603e02e9f8d601d27b7a48d12  # frozen: v1.1.411
+  hooks:
+  - id: pyright
+    additional_dependencies:
+    - dijkstar
+    - types-setuptools
 - repo: https://github.com/mxr/mirrors-ty
   rev: 37bffad357f01d2dbb25251a16441e660df41c50  # frozen: v0.0.74
   hooks:
@@ -20,7 +27,7 @@ repos:
     - dijkstar
     - types-setuptools
 - repo: https://github.com/mxr/sync-typing-deps
-  rev: v0.5.4
+  rev: 827c0d0f5b5dda0644170665034006604f9eb10b  # frozen: v0.6.0
   hooks:
   - id: sync-typing-deps
 - repo: https://github.com/pre-commit/mirrors-mypy
