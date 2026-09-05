@@ -36,7 +36,9 @@ class Node:
     name: str
     parent: Node | None = None
     size: int | None = None
-    children: SetWithAccessor[Node] = field(default_factory=SetWithAccessor)
+    children: SetWithAccessor[Node] = field(
+        default_factory=lambda: SetWithAccessor[Node]()
+    )
 
     @override
     def __hash__(self) -> int:
