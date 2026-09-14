@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: 321478e58f4938179c6b86e4ddfa923d1547a49b  # frozen: v0.16.6
+  rev: e8f7d69b957a30acb2c875078d5fd012de24b64c  # frozen: v0.16.7
   hooks:
   - id: ruff-check
     args: [--fix]
@@ -20,14 +20,14 @@ repos:
   - id: pretty-format-yaml
     args: [--autofix]
 - repo: https://github.com/mxr/mirrors-pyright
-  rev: 89ead1aa9974c0da927f2c2cc6a435f2ce8767fd  # frozen: v1.1.413
+  rev: 917816f768b32cc3aabd877e48b9001e7bf1b35c  # frozen: v1.1.414
   hooks:
   - id: pyright
     additional_dependencies:
     - dijkstar
     - types-setuptools
 - repo: https://github.com/mxr/mirrors-ty
-  rev: fdf5987c0856f51fc20614b56761196b31483ae1  # frozen: v0.0.78
+  rev: d8b7d61f7e6a48575c4938adcea7464e2fef7fdc  # frozen: v0.0.80
   hooks:
   - id: ty
     additional_dependencies:
