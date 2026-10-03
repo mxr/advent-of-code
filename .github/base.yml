@@ -2,3 +2,4 @@ stack: [python]
 opt:
   python:
     min-version: '3.14'
+    ci: false
