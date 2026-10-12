@@ -96,7 +96,7 @@ class Ferry:
             diag_315,
         ):
             seat = self._collect(irange, jrange)
-            if seat:
+            if seat is not None:
                 yield seat
 
     def _collect(self, irange: Iterable[int], jrange: Iterable[int]) -> str | None:
