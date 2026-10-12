@@ -82,7 +82,7 @@ def gen_dir_sizes(root: Node) -> Generator[int]:
     if not root.children:
         return
 
-    assert root.size
+    assert root.size is not None
     yield root.size
     for c in root.children:
         yield from gen_dir_sizes(c)
