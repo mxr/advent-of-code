@@ -29,7 +29,7 @@ repos:
   - id: pretty-format-yaml
     args: [--autofix]
 - repo: https://github.com/mxr/mirrors-ty
-  rev: eb4ceb7491bb88c21e5f156f8e1e224e59ba99dd  # frozen: v0.0.92
+  rev: 36df018dbd072ec71195d0fb8ccbd33506fd4630  # frozen: v0.0.99
   hooks:
   - id: ty
     additional_dependencies:
