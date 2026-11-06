@@ -90,7 +90,9 @@ def execute(filename: str) -> tuple[int, str]:
             if n == 0:
                 del a2is[alg]
 
-    p2 = cast(str,",".join(sorted(dangerous, key=lambda i: dangerous[Ingredient(i)])))
+    p2 = cast(
+        "str", ",".join(sorted(dangerous, key=lambda i: dangerous[Ingredient(i)]))
+    )
 
     return p1, p2
 
