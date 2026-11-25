@@ -60,7 +60,7 @@ repos:
   rev: 914e7df21a07ef503a81201c76d2b11c789d3fca  # frozen: v1.7.12
   hooks:
   - id: actionlint
-    additional_dependencies: [github.com/wasilibs/go-shellcheck/cmd/shellcheck@latest]
+    additional_dependencies: [github.com/wasilibs/go-shellcheck/cmd/shellcheck@v0.11.1]
 - repo: https://github.com/tombi-toml/tombi-pre-commit
   rev: 1066584123cce44a99b4818c2b2c4a7e732ff8e9  # frozen: v1.11.3
   hooks:
